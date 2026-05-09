@@ -1,0 +1,76 @@
+.protocols {
+    margin: 0 auto;
+    padding-top: 20vh;
+    width: 100%;
+    height: 100vh;
+    min-height: 55vh;
+
+    background: transparent;
+    text-align: center;
+}
+
+.protocols h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--darker);
+}
+
+.protocols-list {
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.protocols-card {
+    text-decoration: none;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    width: 280px;
+    height: 30vh;
+    min-height: 100%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.protocols-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 25px var(--primary-shadow);
+    color: var(--primary);
+}
+
+.content-wrapper {
+    margin: 0 auto;
+}
+
+.protocols-card h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: var(--dark);
+}
+
+.protocols-card p {
+    font-size: 14px;
+    color: var(--dark);
+}
+
+.protocols-card a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}

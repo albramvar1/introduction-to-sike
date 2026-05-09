@@ -1,0 +1,141 @@
+.protocol {
+    margin: 0 auto;
+    padding: 0;
+    height: 90vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    text-align: center;
+}
+
+.protocol-container {
+    width: 90vw;
+    height: 87.5vh;
+    margin: 10vh auto;
+    background-color: var(--white);
+    border-radius: 20px;
+}
+
+.content {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .start-button {
+    margin: 0 auto;
+    width: max(10vw, 150px);
+    height: max(7.5vh, 60px);
+    border: none;
+
+    font-size: 2rem;
+    color: var(--darker);
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.beveled {
+    clip-path: polygon(
+            min(calc(35%), 20px) 0,
+            100% 0,
+            100% min(calc(35%), 20px),
+            100% calc(100% - calc(35%)),
+            calc(100% - min(calc(35%), 20px)) 100%,
+            min(calc(35%), 20px) 100%,
+            0 100%,
+            0 calc(35%)
+    );
+
+    background-color: var(--lighter);
+}
+.beveled:hover {
+    clip-path: polygon(
+            0 0,
+            calc(100% - min(calc(35%), 20px)) 0,
+            100% calc(35%),
+            100% 100%,
+            100% 100%,
+            min(calc(35%), 20px) 100%,
+            0 calc(100% - calc(35%)),
+            0 calc(35%)
+    );
+}
+
+.buttons {
+    height: 10%;
+    width: 5vw;
+    min-width: 150px;
+    margin: -1vh auto;
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.buttons .button {
+    margin: 10px;
+    border: none;
+    height: 45px;
+    width: 45px;
+    cursor: pointer;
+}
+
+.buttons .button img {
+    height: 50%;
+    width: 50%;
+}
+
+.final {
+    margin: 0 auto;
+    width: max(35vw, 350px);
+    height: max(7.5vh, 60px);
+    border: none;
+
+    font-size: 2rem;
+    color: var(--darker);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* GENERAL PROTOCOL STEP CLASSES */
+.popover {
+    margin: 0.5rem;
+    padding: 1rem;
+    width: 10vw;
+    background-color: var(--lighter);
+    text-align: center;
+}
+
+.step {
+    font-size: 1.2rem;
+    color: var(--darker);
+}
+
+/* ALICE & BOB */
+.characters {
+    position: relative;
+    top: 2rem;
+}
+
+.alice-to-bob, .bob-to-alice {
+    height: 0;
+}
+
+img.alice {
+    position: relative;
+    right: 25rem;
+}
+
+img.bob {
+    position: relative;
+    right: -25rem;
+}

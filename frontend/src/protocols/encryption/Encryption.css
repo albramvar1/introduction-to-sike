@@ -1,0 +1,159 @@
+/* STEP 1 */
+#encryption-step1 {
+    height: 100%;
+    position: relative;
+    top: 25%;
+}
+
+#encryption-step1 .input-field {
+    margin-bottom: 1.5rem;
+}
+
+#encryption-step1 textarea {
+    margin: 0.5rem;
+    width: 25vw;
+    min-height: 5vh;
+    text-align: justify;
+}
+
+#encryption-step1 .button-container {
+    margin: 0 auto;
+    width: 15rem;
+}
+
+/* STEP 2 */
+#encryption-step2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#encryption-step2 .key-container {
+    width: 60%;
+    padding: 1rem;
+    background-color: var(--trans-primary);
+    border-radius: 0.5rem;
+}
+
+#encryption-step2 .key-container p {
+    font-size: 12.5px;
+}
+
+#encryption-step2 .button-container {
+    margin-top: 2.5rem;
+    width: 15rem;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg) }
+    to { transform: rotate(360deg) }
+}
+#encryption-step2 img.loading {
+    animation: spin 3s linear infinite;
+    height: 2.5rem;
+    padding: 2rem;
+}
+
+/* STEP 3 */
+#encryption-step3 img.key {
+    width: 3rem;
+    position: relative;
+    top: -20rem;
+    right: -20rem;
+}
+
+#encryption-step3 .note {
+    height: 0;
+}
+
+#encryption-step3 .note > p {
+    position: relative;
+    top: -10rem;
+    padding: 1.5rem 2rem;
+    background-color: var(--lighter);
+    border-radius: 0.5rem;
+    border: 1px dotted var(--gray);
+}
+
+/* STEP 4 */
+#encryption-step4 .message {
+    min-width: 15rem;
+    padding: 2rem;
+    background-color: var(--lighter);
+    border-radius: 0.5rem;
+    border: 1px dotted var(--dark);
+}
+
+#encryption-step4 .arrow {
+    margin: 1rem;
+}
+
+#encryption-step4 .encoded-message {
+    min-width: 15rem;
+    padding: 2rem;
+    background-color: var(--trans-primary);
+    border-radius: 0.5rem;
+}
+
+#encryption-step4 .message-encoding {
+    height: 0;
+    position: relative;
+    top: -22.5rem;
+}
+
+#encryption-step4 .message-encoding > p {
+    margin-bottom: 2rem;
+}
+
+/* STEP 5 */
+#encryption-step5 img.envelope {
+    width: 3rem;
+    position: relative;
+    top: -20rem;
+    right: 20rem;
+}
+
+#encryption-step5 .note {
+    height: 0;
+}
+
+#encryption-step5 .note > p {
+    position: relative;
+    top: -10rem;
+    padding: 1.5rem 2rem;
+    background-color: var(--lighter);
+    border-radius: 0.5rem;
+    border: 1px dotted var(--gray);
+}
+
+/* STEP 6 */
+#encryption-step6 .encoded-message {
+    min-width: 15rem;
+    padding: 2rem;
+    background-color: var(--lighter);
+    border-radius: 0.5rem;
+    border: 1px dotted var(--dark);
+}
+
+#encryption-step6 .arrow {
+    margin: 1rem;
+}
+
+#encryption-step6 .decoded-message {
+    min-width: 15rem;
+    padding: 2rem;
+    background-color: var(--trans-primary);
+    border-radius: 0.5rem;
+}
+
+#encryption-step6 .message-decoding {
+    height: 0;
+    position: relative;
+    top: -22.5rem;
+}
+
+#encryption-step6 .message-decoding > p {
+    margin-bottom: 2rem;
+}

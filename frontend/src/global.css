@@ -1,0 +1,120 @@
+:root{
+    --primary: #5a0bdc;
+    --secondary: #0088f3;
+    --primary-shadow: rgba(90, 11, 220, 0.2);
+
+    --trans-primary: rgba(91, 11, 220, 0.2);
+
+    --white: #f9f9f9;
+    --lighter: #f0f0f0;
+    --light: #e4e4e4;
+    --gray: #b1b1b1;
+    --dark-gray: #5b5b5b;
+    --dark: #353535;
+    --darker: #202020;
+    --black: #151515;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    background: var(--darker);
+    z-index: -1000;
+}
+
+body {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    margin: 0 auto;
+    background: var(--lighter);
+    z-index: -999;
+}
+
+a {
+    text-decoration: none;
+    color: var(--darker);
+}
+a:hover {
+    color: var(--primary) !important;
+}
+
+/* quantico font classes */
+.quantico-regular {
+    font-family: 'Quantico', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.quantico-bold {
+    font-family: 'Quantico', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.quantico-regular-italic {
+    font-family: 'Quantico', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.quantico-bold-italic {
+    font-family: 'Quantico', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.code {
+    font-family: Monospaced, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    margin: 0.5rem;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.math {
+    font-family: 'Times New Roman', Times, serif !important;
+    font-weight: 400;
+}
+
+.mathcal {
+    font-size: 135%;
+}
+
+.superindex {
+    position: relative;
+    top: -0.3em;
+    font-size: 80%;
+    font-family: 'Times New Roman', Times, serif !important;
+    font-weight: 400;
+}
+
+.subindex {
+    position: relative;
+    top: +0.3em;
+    font-size: 80%;
+    font-family: 'Times New Roman', Times, serif !important;
+    font-weight: 400;
+}
+
+.math-formula {
+    font-family: 'Times New Roman', Times, serif !important;
+    font-weight: 400;
+    font-size: 120%;
+    letter-spacing: 3px;
+    margin: 1rem;
+}
+
+.math-text {
+    font-family: 'Times New Roman', Times, serif !important;
+    font-weight: 400;
+    letter-spacing: initial;
+    font-style: italic;
+}

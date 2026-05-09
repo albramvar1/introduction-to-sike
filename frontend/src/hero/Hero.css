@@ -1,0 +1,88 @@
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: var(--darker);
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-video {
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.decrypting-hero-text {
+    display: inline-block;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-content a {
+    text-decoration: none;
+    color: var(--primary);
+}
+.hero-content a:hover {
+    color: var(--light-primary-color);
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+/* 🔹 Tablets (landscape & portrait) */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+}
+
+/* 🔹 Mobile (large phones) */
+@media (max-width: 768px) {
+    .hero {
+        padding: 0 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-content button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* 🔹 Small mobile (very small screens) */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 24px;
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .hero-content button {
+        width: 100%; /* Full width button on tiny screens */
+        font-size: 14px;
+        padding: 10px;
+    }
+}

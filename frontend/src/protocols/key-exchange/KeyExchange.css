@@ -1,0 +1,272 @@
+/* STEP 1 */
+#keyexchange-step1 .communication-container {
+    height: 0;
+}
+
+#keyexchange-step1 .communication-container img {
+    height: 25rem;
+    position: relative;
+    top: -27.5rem;
+}
+
+#keyexchange-step1 .communication-container .communication-note {
+    position: relative;
+    top: -31rem;
+    padding: 1rem 2rem;
+
+    background-color: var(--lighter);
+    border-radius: 0.5rem;
+    border: 1px dotted var(--gray);
+}
+
+#keyexchange-step1 .communication-container .communication-note div {
+    margin-top: 1rem;
+}
+#keyexchange-step1 .communication-container .communication-note ul {
+    margin: 0.5rem auto;
+    text-align: left;
+    width: 75%;
+}
+
+/* STEP 2 */
+#keyexchange-step2 {
+    display: grid;
+    height: calc(100% - 4rem);
+    width: calc(100% - 4rem);
+    margin: 2rem auto;
+    grid-template-columns: 30% 65%;
+    grid-gap: 5%;
+}
+
+#keyexchange-step2 .graph-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+}
+
+#keyexchange-step2 .graph-container img {
+    margin: 0 auto;
+    height: 50vh;
+    display: block;
+    object-fit: contain;
+}
+
+#keyexchange-step2 .note-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+#keyexchange-step2 .note p {
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+/* STEP 3 */
+#keyexchange-step3 {
+    height: 100%;
+    width: 100%;
+}
+
+#keyexchange-step3 .dual-graph-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1rem;
+    height: calc(100% - 2rem);
+    width: calc(100% - 3rem);
+    margin: 1rem auto;
+}
+
+#keyexchange-step3 .graph-container {
+    width: 100%;
+}
+
+#keyexchange-step3 .profile-picture {
+    height: 10rem;
+}
+
+#keyexchange-step3 .carousel-container {
+    width: 90%;
+    height: calc(100% - 12rem);
+    margin: 0 auto;
+    padding-top: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#keyexchange-step3 .carousel-item img {
+    display: block;
+    object-fit: contain;
+    width: 100%;
+    height: calc(100% - 12rem);
+    margin: 0 auto;
+}
+
+
+/* STEP 4 */
+#keyexchange-step4 .alice-to-bob {
+    position: relative;
+    top: -15rem;
+}
+
+#keyexchange-step4 .bob-to-alice {
+    height: 0;
+    position: relative;
+    top: -17rem;
+}
+
+#keyexchange-step4 .image-points {
+    padding: 0 5rem;
+}
+
+#keyexchange-step4 .note {
+    height: 0;
+}
+
+#keyexchange-step4 .note > p {
+    width: 35rem;
+    position: relative;
+    top: 6rem;
+    padding: 1.5rem 2rem;
+    background-color: var(--lighter);
+    border-radius: 0.5rem;
+    border: 1px dotted var(--gray);
+}
+
+/* STEP 5 */
+#keyexchange-step5 {
+    height: 100%;
+    width: 100%;
+}
+
+#keyexchange-step5 .dual-graph-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1rem;
+    height: calc(100% - 2rem);
+    width: calc(100% - 3rem);
+    margin: 1rem auto;
+}
+
+#keyexchange-step5 .graph-container {
+    width: 100%;
+}
+
+#keyexchange-step5 .profile-picture {
+    height: 10rem;
+}
+
+#keyexchange-step5 .carousel-container {
+    width: 90%;
+    height: calc(100% - 12rem);
+    margin: 0 auto;
+    padding-top: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#keyexchange-step5 .carousel-item img {
+    display: block;
+    object-fit: contain;
+    width: 100%;
+    height: calc(100% - 12rem);
+    margin: 0 auto;
+}
+
+#keyexchange-step5 .note {
+    height: 0;
+}
+
+#keyexchange-step5 .note > p {
+    margin: 0 auto;
+    width: fit-content;
+    position: relative;
+    top: -6rem;
+    padding: 1.5rem 2rem;
+    background-color: var(--lighter);
+    border-radius: 0.5rem;
+    border: 1px dotted var(--gray);
+}
+
+/* STEP 6 */
+#keyexchange-step6 .dual-graph-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 3rem;
+    height: 20rem;
+}
+
+#keyexchange-step6 .dual-graph-container .profile-picture-container {
+    width: 0;
+    height: 0;
+    display: inline-block;
+}
+
+#keyexchange-step6 .dual-graph-container img.alice-profile-picture {
+    position: relative;
+    left: -4rem;
+    z-index: 10;
+    height: 10rem;
+}
+
+#keyexchange-step6 .dual-graph-container img.bob-profile-picture {
+    position: relative;
+    left: 14rem;
+    z-index: 10;
+    height: 10rem;
+}
+
+#keyexchange-step6 .dual-graph-container img.closeup {
+    margin: 0 auto;
+    object-fit: contain;
+    height: 20rem;
+}
+
+#keyexchange-step6 .note {
+    margin-top: 5rem;
+}
+#keyexchange-step6 .note p {
+    padding: 1.5rem 2rem;
+    background-color: var(--lighter);
+    border-radius: 0.5rem;
+    border: 1px dotted var(--gray);
+}
+
+
+/* STEP 7 */
+#keyexchange-step7 .communication-container {
+    height: 0;
+}
+
+#keyexchange-step7 .communication-container img {
+    height: 25rem;
+    position: relative;
+    top: -27.5rem;
+}
+
+#keyexchange-step7 .communication-container .communication-note {
+    position: relative;
+    top: -31rem;
+    padding: 1rem 2rem;
+
+    background-color: var(--lighter);
+    border-radius: 0.5rem;
+    border: 1px dotted var(--gray);
+}
+
+#keyexchange-step7 .communication-container .communication-note div {
+    margin: 1rem;
+}

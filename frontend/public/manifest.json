@@ -1,0 +1,30 @@
+{
+  "short_name": "SIKE",
+  "name": "Introduction to SIKE",
+  "icons": [
+    {
+      "src": "/logo/sike-light.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/logo/sike-dark.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/logo/sike-light.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/logo/sike-dark.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#151515",
+  "background_color": "#f9f9f9"
+}

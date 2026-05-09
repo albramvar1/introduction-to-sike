@@ -1,0 +1,38 @@
+.footer {
+    background-color: var(--darker);
+    min-height: 30vh;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-gap: 2rem;
+    padding: 0 5rem;
+}
+
+.footer div.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.footer div.right {
+    align-items: start;
+    text-align: left;
+}
+
+.footer h4 {
+    color: var(--dark-gray);
+    font-weight: normal;
+    font-style: italic;
+    font-size: 1.5rem;
+    margin: 0;
+    padding-bottom: 0.5rem;
+}
+
+.footer p {
+    margin: 0;
+    color: var(--dark-gray);
+}
+
+.footer div img {
+    object-fit: contain;
+    height: 7.5vh;
+    padding-bottom: 1rem;
+}

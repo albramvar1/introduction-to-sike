@@ -1,0 +1,56 @@
+.home {
+    text-align: center;
+}
+
+.home-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .home-logo {
+        animation: home-logo-spin infinite 20s linear;
+    }
+}
+
+.home-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.home-link {
+    color: #61dafb;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.protocols-wrapper {
+    height: 70vh;
+    padding-bottom: 10vh;
+}
+
+.about-wrapper {
+    height: 85vh;
+    padding-bottom: 10vh;
+
+}
