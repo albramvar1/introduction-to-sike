@@ -1,0 +1,37 @@
+# Define the services (containers) that make up the application
+services:
+
+  # Backend service (Spring Boot)
+  backend:
+    # Build the image from the Dockerfile inside the 'backend' directory
+    build:
+      context: ./backend
+
+    # Map port 8080 of the container to port 8080 on the host
+    ports:
+      - "8080:8080"
+
+    # Connect this service to a custom-defined network
+    networks:
+      - app-network
+
+  # Frontend service (React)
+  frontend:
+    # Build the image from the Dockerfile inside the 'frontend' directory
+    build:
+      context: ./frontend
+
+    # Map port 3000 of the container to port 3000 on the host
+    ports:
+      - "3000:3000"
+
+    depends_on:
+      - backend
+
+    # Connect this service to the same custom network as the backend
+    networks:
+      - app-network
+
+# Define the custom Docker network so services can talk to each other
+networks:
+  app-network:

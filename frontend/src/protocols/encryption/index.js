@@ -82,6 +82,12 @@ function Step2() {
     const parameters = useParameters();
     const [loading, setLoading] = useState(false);
 
+    useEffect(() => {
+        if (parameters.message !== parameters.decodedMessage) {
+            onClick();
+        }
+    }, [onClick, parameters.decodedMessage, parameters.message]);
+
     async function onClick() {
         setLoading(true);
         document.getElementById("generate-new-key").disabled = true;
@@ -89,11 +95,9 @@ function Step2() {
         await fetch('http://localhost:8080/sike/generate-key-pair?message=' + parameters.message)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 parameters.key = data.key;
                 parameters.keyBytes = data.keyBytes;
                 parameters.encodedMessage = data.encodedMessage;
-                parameters.encodedMessageBytes = data.encodedMessageBytes;
                 parameters.decodedMessage = data.decodedMessage;
             })
             .catch(error => console.error('Error generating key:', error));

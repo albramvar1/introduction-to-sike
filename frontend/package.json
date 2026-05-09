@@ -1,5 +1,5 @@
 {
-  "name": "Introduction to SIKE (frontend)",
+  "name": "frontend",
   "version": "1.0.0",
   "private": true,
   "imports": {
@@ -57,6 +57,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": ""
+  }
 }

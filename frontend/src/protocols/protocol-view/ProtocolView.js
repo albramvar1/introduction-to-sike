@@ -66,6 +66,7 @@ function ProtocolView({ protocol }) {
     }, [incrementStep]);
 
     useEffect(() => {
+        setIsPlaying(false);
         setCurrentStep(0);
     }, [protocol]);
 
