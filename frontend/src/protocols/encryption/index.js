@@ -81,6 +81,7 @@ function Step1() {
 function Step2() {
     const parameters = useParameters();
     const [loading, setLoading] = useState(false);
+    const [ENDPOINT, setEndpoint] = useState('https://introduction-to-sike-backend.onrender.com');
 
     useEffect(() => {
         if (parameters.message !== parameters.decodedMessage) {
@@ -91,8 +92,8 @@ function Step2() {
     async function onClick() {
         setLoading(true);
         document.getElementById("generate-new-key").disabled = true;
-        console.log("Generando nueva clave...")
-        await fetch('http://localhost:8080/sike/generate-key-pair?message=' + parameters.message)
+        console.log('Generating new key pair from ' + ENDPOINT);
+        await fetch(ENDPOINT + '/sike/generate-key-pair?message=' + parameters.message)
             .then(response => response.json())
             .then(data => {
                 parameters.key = data.key;

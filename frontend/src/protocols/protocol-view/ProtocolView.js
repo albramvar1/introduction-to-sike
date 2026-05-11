@@ -8,7 +8,6 @@ import { steps as proofSteps } from "#protocols/proof-of-identity"
 import { steps as exchangeSteps } from "#protocols/key-exchange"
 import { steps as encryptionSteps } from "#protocols/encryption";
 import MotionDiv from "#components/MotionDiv";
-import {useParameters} from "#src/contexts/ParametersContext";
 
 function StartButton() {
     return (
@@ -50,14 +49,14 @@ async function sleep(ms) {
 }
 
 function ProtocolView({ protocol }) {
-    const parameters = useParameters();
     const [isPlaying, setIsPlaying] = useState(false);
-    const togglePlaying = () => { setIsPlaying(!isPlaying); };
     const [steps, setSteps] = useState([]);
     const [currentStep, setCurrentStep] = useState(0);
+    const lastStep = steps.length;
+
+    const togglePlaying = () => { setIsPlaying(!isPlaying); };
     const incrementStep = () => { if (currentStep < lastStep) setCurrentStep(currentStep + 1); };
     const decrementStep = () => { if (currentStep > 0) setCurrentStep(currentStep - 1); };
-    const lastStep = steps.length;
     
     const handleStart = useCallback((event) => {
         console.log("Starting protocol demonstration");

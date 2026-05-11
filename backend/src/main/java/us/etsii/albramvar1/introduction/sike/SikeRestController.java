@@ -33,6 +33,10 @@ public class SikeRestController {
 
 	@GetMapping("/generate-key-pair")
 	public ResponseEntity<SikeEntity> generateKeyPair(@RequestParam(name="message") String message) {
+        if (message.isBlank() || message.isEmpty() || message == null) {
+            return (ResponseEntity<SikeEntity>) ResponseEntity.badRequest();
+        }
+
         SikeEntity keyPair = service.generateKeyPair(message);
         if (keyPair == null) {
             return (ResponseEntity<SikeEntity>) ResponseEntity.internalServerError();

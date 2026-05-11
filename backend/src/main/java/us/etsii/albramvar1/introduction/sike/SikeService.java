@@ -49,8 +49,7 @@ public class SikeService {
             }
 
             String publicKey = keyPairB.getPublic().toString();
-            SikeEntity sikeEntity = new SikeEntity(publicKey, secretA);
-            sikeEntity.setOriginalMessage(message);
+            SikeEntity sikeEntity = new SikeEntity(publicKey, secretA, message);
 
             sikeEntity = encode(sikeEntity);
             sikeEntity = decode(sikeEntity);

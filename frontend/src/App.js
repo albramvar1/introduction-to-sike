@@ -7,6 +7,7 @@ import Navbar from "./navbar/Navbar";
 import Footer from "./footer/Footer";
 import ProtocolView from "./protocols/protocol-view/ProtocolView";
 import {ParametersProvider} from "#src/contexts/ParametersContext";
+import {useEffect} from "react";
 
 function ErrorFallback({ error, resetErrorBoundary }) {
     return (
@@ -19,6 +20,12 @@ function ErrorFallback({ error, resetErrorBoundary }) {
 }
 
 function App() {
+    useEffect(() => {
+        fetch(process.env.DEPLOYED_URL)
+            .then(response => console.log('Successfully connected to backend: ' + response.status))
+            .catch(error => console.error('Error generating key:', error));
+    }, []);
+
     return (
         <ParametersProvider>
             <ErrorBoundary FallbackComponent={ErrorFallback}>

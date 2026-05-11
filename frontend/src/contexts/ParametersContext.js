@@ -6,7 +6,6 @@ const initialParameters = {
     message: "Hello, world!",
     encodedMessage: "EuEnIhbO35hFOQPMFw==",
     decodedMessage: "Hello, world!",
-    incrementStep: false,
 }
 
 const ParametersContext = createContext(initialParameters);
@@ -21,7 +20,6 @@ function useParametersDispatcher() {
 }
 
 function parametersReducer(parameters, action) {
-    //if (parameters === undefined) return;
     parameters[action.name] = action.value;
 }
 

@@ -26,24 +26,9 @@ public class SecurityConfiguration {
                         .anyRequest().permitAll()
                 )
                 .httpBasic(withDefaults())
-                //.cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(AbstractHttpConfigurer::disable);
         return http.build();
     }
-
-    //configuration.setAllowedOrigins(List.of("http://localhost:3000", "http://frontend:3000", "https://frontend:3000"));
-    /*@Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("*"));
-        configuration.setAllowedMethods(List.of("GET"));
-        configuration.addAllowedHeader("Content-Type");
-        configuration.addAllowedHeader("Authorization");
-        configuration.setAllowCredentials(true);
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration); // allow all paths
-        return source;
-    }*/
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {

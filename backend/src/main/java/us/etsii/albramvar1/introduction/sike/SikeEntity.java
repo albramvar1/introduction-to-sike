@@ -11,12 +11,13 @@ public class SikeEntity {
     private byte[] keyBytes;
 
     // message values
-    private String originalMessage = "";
+    private String originalMessage;
     private byte[] encodedMessage = new byte[]{};
-    private String decodedMessage = "";
+    private String decodedMessage = null;
 
-    public SikeEntity(String key, byte[] keyBytes) {
+    public SikeEntity(String key, byte[] keyBytes, String message) {
         this.key = key;
         this.keyBytes = keyBytes;
+        this.originalMessage = message;
     }
 }

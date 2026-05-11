@@ -1,20 +1,13 @@
-backend/.idea/*
-backend/.mvn/*
-backend/target/classes/*
-backend/target/generated-sources/*
-backend/target/generated-test-sources/*
-backend/maven-archiver/*
-backend/maven-status/*
-backend/surefire-reports/*
-backend/test-classes/*
-frontend/.idea/*
-frontend/.todo/*
-frontend/build/*
-frontend/node_modules/*
-frontend/target/*
-frontend/.git/*
-frontend/.gitignore/*
-.vscode/*
+backend/.idea/**
+backend/.mvn/**
+backend/target/**
+frontend/.idea/**
+frontend/.todo/**
+frontend/build/**
+frontend/node_modules/**
+frontend/target/**
+frontend/.todo/**
+.vscode/**
 
 # Logs
 logs
