@@ -39,6 +39,7 @@
 
 #encryption-step2 .key-container p {
     font-size: 12.5px;
+    overflow: scroll;
 }
 
 #encryption-step2 .button-container {

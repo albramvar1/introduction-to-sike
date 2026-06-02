@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowBigDownDashIcon } from 'lucide-animated'
+import { ArrowBigDownDashIcon } from "lucide-animated"
 import {
     Button,
     FormControl,
@@ -18,7 +18,7 @@ function Step1() {
     const parameters = useParameters();
 
     const isValid = (str) => {
-        if(typeof(str)!=='string'){
+        if(typeof(str)!=="string"){
             return false;
         }
         for(let i=0;i<str.length;i++){
@@ -36,6 +36,7 @@ function Step1() {
         if (!isValid(message)) {
             setError(true);
             setErrorMessage("Please, write a message with less weird characters (a clue: when in doubt, stick to letters)")
+            msg_element.value = parameters.message;
             return;
         }
 
@@ -56,7 +57,7 @@ function Step1() {
                     placeholder={"Hello, world!"}
                     required
                     fullWidth
-                    color={error ? 'error' : 'primary'}
+                    color={error ? "error" : "primary"}
                     className="input-field"
                     multiline
                     rows={4}
@@ -71,7 +72,7 @@ function Step1() {
                     className="submit-button"
                     onClick={handleClick}
                 >
-                    Let's go!
+                    Let"s go!
                 </Button>
             </div>*/}
         </MotionDiv>
@@ -81,7 +82,7 @@ function Step1() {
 function Step2() {
     const parameters = useParameters();
     const [loading, setLoading] = useState(false);
-    const [ENDPOINT, setEndpoint] = useState('https://introduction-to-sike-backend.onrender.com');
+    const [ENDPOINT, setEndpoint] = useState(process.env.REACT_APP_DEPLOYED_URL);
 
     useEffect(() => {
         if (parameters.message !== parameters.decodedMessage) {
@@ -92,8 +93,8 @@ function Step2() {
     async function onClick() {
         setLoading(true);
         document.getElementById("generate-new-key").disabled = true;
-        console.log('Generating new key pair from ' + ENDPOINT);
-        await fetch(ENDPOINT + '/sike/generate-key-pair?message=' + parameters.message)
+        //console.log("Generating new key pair from " + ENDPOINT);
+        await fetch(ENDPOINT + "/sike/generate-key-pair?message=" + parameters.message)
             .then(response => response.json())
             .then(data => {
                 parameters.key = data.key;
@@ -101,19 +102,19 @@ function Step2() {
                 parameters.encodedMessage = data.encodedMessage;
                 parameters.decodedMessage = data.decodedMessage;
             })
-            .catch(error => console.error('Error generating key:', error));
+            .catch(error => console.error("Error generating key:", error));
         setLoading(false);
         document.getElementById("generate-new-key").disabled = false;
     }
 
     return (
         <MotionDiv className="step step2" id="encryption-step2">
-            <div className="key-container">
+            <div className="key-container" id="key-container">
                 {
                     loading ?
                         <img src="/images/loading.png" alt="Loading..." className="loading" />
                         :
-                        <p className="math">{parameters.key}</p>
+                        <p className="math" id="key-value">{parameters.key}</p>
                 }
             </div>
             <div className="button-container">
@@ -135,10 +136,10 @@ function Step2() {
 function Step3() {
     return (
         <MotionDiv className="step step3" id="encryption-step3">
-            <BobToAlice>
+            <BobToAlice id="bob-to-alice">
                 <img className="key" src="/images/key-chain.png" alt="key" />
             </BobToAlice>
-            <div className="note">
+            <div className="note" id="note">
                 <p>First, Bob sends his <span className="code">PUBLIC KEY</span> to Alice.</p>
             </div>
         </MotionDiv>
@@ -151,7 +152,7 @@ function Step4() {
     return (
         <MotionDiv className="step step4" id="encryption-step4">
             <Characters hideBob={true} />
-            <div className="message-encoding">
+            <div className="message-encoding" id="message-encoding">
                 <p>Then, Alice encodes the message...</p>
                 <div className="message">{parameters.message}</div>
                 <ArrowBigDownDashIcon className="arrow" />
@@ -164,10 +165,10 @@ function Step4() {
 function Step5() {
     return (
         <MotionDiv className="step step5" id="encryption-step5">
-            <AliceToBob>
+            <AliceToBob id="alice-to-bob">
                 <img className="envelope" src="/images/envelope.png" alt="envelope" />
             </AliceToBob>
-            <div className="note">
+            <div className="note" id="note">
                 <p>...and she sends the <span className="code">ENCODED MESSAGE</span> to Bob.</p>
             </div>
         </MotionDiv>
@@ -180,7 +181,7 @@ function Step6() {
     return (
         <MotionDiv className="step step6" id="encryption-step6">
             <Characters hideAlice={true} />
-            <div className="message-decoding">
+            <div className="message-decoding" id="message-decoding">
                 <p>Finally, Bob decodes the message to get the original.</p>
                 <div className="encoded-message">{parameters.encodedMessage}</div>
                 <ArrowBigDownDashIcon className="arrow" />

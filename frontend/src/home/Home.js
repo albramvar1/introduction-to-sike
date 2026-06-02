@@ -6,12 +6,12 @@ import "./Home.css";
 
 function Home() {
     return (
-        <div className="home">
+        <div className="home" id="home">
             <Hero/>
-            <div className="protocols-wrapper">
+            <div className="protocols-wrapper" id="protocols-wrapper">
                 <Protocols/>
             </div>
-            <div className="about-wrapper">
+            <div className="about-wrapper" id="about-wrapper">
                 <About/>
             </div>
         </div>

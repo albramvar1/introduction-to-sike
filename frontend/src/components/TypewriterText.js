@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 const TypewriterText = ({
                             text = "Building the future, one line at a time...",
                             speed = 100,
@@ -11,7 +11,7 @@ const TypewriterText = ({
                             className = "",
                             showCursor = true
                         }) => {
-    const [displayText, setDisplayText] = useState('');
+    const [displayText, setDisplayText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
     useEffect(() => {

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-function MotionDiv({className = '',
+function MotionDiv({className = "",
                     id,
                     delay,
                     children }) {

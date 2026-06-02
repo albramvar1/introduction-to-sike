@@ -4,8 +4,8 @@ import "#protocols/key-exchange/KeyExchange.css";
 import "#protocols/encryption/Encryption.css";
 import {useCallback, useEffect, useState} from "react";
 import {TypeAnimation} from "react-type-animation";
-import { steps as proofSteps } from "#protocols/proof-of-identity"
-import { steps as exchangeSteps } from "#protocols/key-exchange"
+import { steps as proofSteps } from "#protocols/proof-of-identity";
+import { steps as exchangeSteps } from "#protocols/key-exchange";
 import { steps as encryptionSteps } from "#protocols/encryption";
 import MotionDiv from "#components/MotionDiv";
 
@@ -75,7 +75,7 @@ function ProtocolView({ protocol }) {
     }, [handleStart, currentStep])
 
     useEffect(() => {
-        console.log('Loading step number ', currentStep);
+        console.log("Loading step number ", currentStep);
         if (currentStep >= lastStep) {
             setIsPlaying(false);
         }
@@ -120,22 +120,22 @@ function ProtocolView({ protocol }) {
     }
 
     return (
-        <div className="protocol">
+        <div className="protocol" id="protocol">
             <div className="protocol-container">
                 <div className="content" id="content">
                     { renderStep(currentStep) }
                 </div>
                 <div className="buttons">
-                    <button className="button beveled" onClick={() => decrementStep()}>
+                    <button id="button-back" className="button beveled" onClick={() => decrementStep()}>
                         <img src="/player/back.svg" alt="Back"/>
                     </button>
-                    <button className="button beveled" onClick={() => togglePlaying()}>
+                    <button id="button-play" className="button beveled" onClick={() => togglePlaying()}>
                         { isPlaying ?
                             <img src="/player/pause.svg" alt="Pause"/> :
                             <img src="/player/play.svg" alt="Play"/>
                         }
                     </button>
-                    <button className="button beveled" onClick={() => incrementStep()}>
+                    <button id="button-forward" className="button beveled" onClick={() => incrementStep()}>
                         <img src="/player/forward.svg" alt="Forward"/>
                     </button>
                 </div>

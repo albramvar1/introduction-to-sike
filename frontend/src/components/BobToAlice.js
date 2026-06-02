@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion"
 import Characters from "#components/Characters";
 
-function BobToAlice({className = '',
-                    id = '',
+function BobToAlice({className = "",
+                    id = "",
                         distance = -600,
                     hideAlice = false, hideBob = false,
                     children }) {

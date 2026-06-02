@@ -9,7 +9,7 @@
     padding: 0 20px;
 }
 
-.hero-video {
+.hero-background {
     position: absolute;
     z-index: -1;
     width: 100vw;
@@ -30,7 +30,7 @@
     color: var(--primary);
 }
 .hero-content a:hover {
-    color: var(--light-primary-color);
+    color: var(--primary);
 }
 
 .hero-content p {

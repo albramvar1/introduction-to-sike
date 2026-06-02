@@ -38,8 +38,8 @@ function Protocols() {
     }, []);
 
     return (
-        <section className="protocols" id="protocols">
-            <h2 className={`fade-in ${visible ? "show" : ""}`}>Protocols</h2>
+        <section className={`protocols fade-in ${visible ? "show" : ""}`} id="protocols">
+            <h2>Protocols</h2>
             <div className="protocols-list">
                 {protocols.map((protocol, index) => (
                     <a href={protocol.url} key={index}  className={`protocols-card fade-in ${visible ? "show" : ""}`}>

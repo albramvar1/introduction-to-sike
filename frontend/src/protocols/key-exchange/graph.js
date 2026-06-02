@@ -152,16 +152,16 @@ function GraphView() {
         ...lightTheme,
         node: {
             ...lightTheme.node,
-            fill: '#202020',
+            fill: "#202020",
             label: {
-                color: '#202020'
+                color: "#202020"
             }
         },
         edge: {
             ...lightTheme.edge,
-            fill: '#202020',
+            fill: "#202020",
             arrow: {
-                fill: '#202020'
+                fill: "#202020"
             }
         }
     };

@@ -1,8 +1,8 @@
 // source: https://seraui.com/docs/decrypting
 "use client";
-
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+
 const CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()-+=[]{}|;:,.<>?";
 function DecryptingText({
                             targetText,

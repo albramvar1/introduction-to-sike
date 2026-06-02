@@ -16,7 +16,7 @@
 }
 
 * {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 html {
@@ -31,6 +31,7 @@ body {
     margin: 0 auto;
     background: var(--lighter);
     z-index: -999;
+    overflow-x: hidden;
 }
 
 a {
@@ -43,31 +44,31 @@ a:hover {
 
 /* quantico font classes */
 .quantico-regular {
-    font-family: 'Quantico', sans-serif;
+    font-family: "Quantico", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 .quantico-bold {
-    font-family: 'Quantico', sans-serif;
+    font-family: "Quantico", sans-serif;
     font-weight: 700;
     font-style: normal;
 }
 
 .quantico-regular-italic {
-    font-family: 'Quantico', sans-serif;
+    font-family: "Quantico", sans-serif;
     font-weight: 400;
     font-style: italic;
 }
 
 .quantico-bold-italic {
-    font-family: 'Quantico', sans-serif;
+    font-family: "Quantico", sans-serif;
     font-weight: 700;
     font-style: italic;
 }
 
 .code {
-    font-family: Monospaced, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    font-family: Monospaced, Menlo, Monaco, Consolas, "Courier New", monospace;
     margin: 0.5rem;
 }
 
@@ -80,7 +81,7 @@ a:hover {
 }
 
 .math {
-    font-family: 'Times New Roman', Times, serif !important;
+    font-family: "Times New Roman", Times, serif !important;
     font-weight: 400;
 }
 
@@ -92,7 +93,7 @@ a:hover {
     position: relative;
     top: -0.3em;
     font-size: 80%;
-    font-family: 'Times New Roman', Times, serif !important;
+    font-family: "Times New Roman", Times, serif !important;
     font-weight: 400;
 }
 
@@ -100,12 +101,12 @@ a:hover {
     position: relative;
     top: +0.3em;
     font-size: 80%;
-    font-family: 'Times New Roman', Times, serif !important;
+    font-family: "Times New Roman", Times, serif !important;
     font-weight: 400;
 }
 
 .math-formula {
-    font-family: 'Times New Roman', Times, serif !important;
+    font-family: "Times New Roman", Times, serif !important;
     font-weight: 400;
     font-size: 120%;
     letter-spacing: 3px;
@@ -113,7 +114,7 @@ a:hover {
 }
 
 .math-text {
-    font-family: 'Times New Roman', Times, serif !important;
+    font-family: "Times New Roman", Times, serif !important;
     font-weight: 400;
     letter-spacing: initial;
     font-style: italic;
