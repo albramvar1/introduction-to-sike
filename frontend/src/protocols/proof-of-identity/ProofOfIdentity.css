@@ -1,0 +1,99 @@
+/* STEP 1 */
+#identity-step1 .note {
+    width: 50rem;
+    margin-top: 3rem;
+    padding: 1rem 2rem;
+
+    background-color: var(--lighter);
+    border-radius: 0.5rem;
+    border: 1px dotted var(--gray);
+}
+
+/* STEP 2 */
+#identity-step2 .note {
+    width: 50rem;
+    margin-top: 3rem;
+    padding: 1rem 2rem;
+
+    background-color: var(--lighter);
+    border-radius: 0.5rem;
+    border: 1px dotted var(--gray);
+}
+
+/* STEP 3 */
+#identity-step3 .note {
+    width: 30rem;
+    padding: 1rem 2rem;
+
+    position: relative;
+    top: -15rem;
+    left: 20rem;
+
+    background-color: var(--lighter);
+    border-radius: 0.5rem;
+    border: 1px dotted var(--gray);
+}
+
+#identity-step3 .characters {
+    margin-left: 25rem;
+}
+
+/* STEP 4 */
+#identity-step4 .message {
+    font-size: 1.25rem;
+    position: relative;
+    top: -17.5rem;
+}
+
+#identity-step4 .note {
+    width: 30rem;
+    padding: 1rem 2rem;
+
+    background-color: var(--lighter);
+    border-radius: 0.5rem;
+    border: 1px dotted var(--gray);
+}
+
+/* STEP 5 */
+#identity-step5 .message {
+    font-size: 1.25rem;
+    position: relative;
+    top: -17.5rem;
+}
+
+#identity-step5 .note {
+    width: 30rem;
+    padding: 1rem 2rem;
+
+    background-color: var(--lighter);
+    border-radius: 0.5rem;
+    border: 1px dotted var(--gray);
+}
+
+/* STEP 6 */
+#identity-step6 .grid-container {
+    margin: 0 auto;
+    width: 30rem;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 3rem;
+
+    position: relative;
+    top: -15rem;
+}
+
+#identity-step6 .note {
+    margin: 0 auto;
+    padding: 1rem 2rem;
+
+    background-color: var(--lighter);
+    border-radius: 0.5rem;
+    border: 1px dotted var(--gray);
+}
+
+#identity-step6 .conclusion {
+    width: 30rem;
+    position: relative;
+    top: -10rem;
+}
