@@ -51,9 +51,6 @@ public class SikeService {
             String publicKey = keyPairB.getPublic().toString();
             SikeEntity sikeEntity = new SikeEntity(publicKey, secretA, message);
 
-            sikeEntity = encode(sikeEntity);
-            sikeEntity = decode(sikeEntity);
-
             if (!sikeEntity.getOriginalMessage().equals(
                     sikeEntity.getDecodedMessage()
             )) {
@@ -64,40 +61,5 @@ public class SikeService {
         } catch (Exception e) {
             return null;
         }
-    }
-
-    public SikeEntity encode(SikeEntity sikeEntity) {
-        String message = sikeEntity.getOriginalMessage();
-        byte[] messageBytes = message.getBytes(StandardCharsets.UTF_8);
-
-        SHAKEDigest shake = new SHAKEDigest(256);
-        byte[] keyBytes = sikeEntity.getKeyBytes();
-        shake.update(keyBytes, 0, keyBytes.length);
-
-        byte[] encodedMessage = new byte[messageBytes.length];
-        for (int i = 0; i < messageBytes.length; i++) {
-            encodedMessage[i] = (byte) (keyBytes[i%16] ^ messageBytes[i]);
-        }
-
-        sikeEntity.setEncodedMessage(encodedMessage);
-
-        return sikeEntity;
-    }
-
-    public SikeEntity decode(SikeEntity sikeEntity) {
-        byte[] encodedMessage = sikeEntity.getEncodedMessage();
-
-        SHAKEDigest shake = new SHAKEDigest(256);
-        byte[] publicKeyBytes = sikeEntity.getKeyBytes();
-        shake.update(publicKeyBytes, 0, publicKeyBytes.length);
-
-        byte[] decodedMessageBytes = new byte[encodedMessage.length];
-        for (int i = 0; i < encodedMessage.length; i++) {
-            decodedMessageBytes[i] = (byte) (publicKeyBytes[i%16] ^ encodedMessage[i]);
-        }
-
-        sikeEntity.setDecodedMessage(new String(decodedMessageBytes));
-
-        return sikeEntity;
     }
 }

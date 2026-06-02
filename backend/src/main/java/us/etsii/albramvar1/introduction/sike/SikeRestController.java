@@ -16,6 +16,7 @@
 package us.etsii.albramvar1.introduction.sike;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,13 +34,13 @@ public class SikeRestController {
 
 	@GetMapping("/generate-key-pair")
 	public ResponseEntity<SikeEntity> generateKeyPair(@RequestParam(name="message") String message) {
-        if (message.isBlank() || message.isEmpty() || message == null) {
-            return (ResponseEntity<SikeEntity>) ResponseEntity.badRequest();
+        if (message.isBlank()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
 
         SikeEntity keyPair = service.generateKeyPair(message);
         if (keyPair == null) {
-            return (ResponseEntity<SikeEntity>) ResponseEntity.internalServerError();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
         return ResponseEntity.ok(keyPair);
     }
