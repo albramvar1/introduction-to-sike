@@ -114,8 +114,8 @@
 #keyexchange-step3 .carousel-item img {
     display: block;
     object-fit: contain;
-    width: 100%;
-    height: calc(100% - 10vh);
+    max-width: 90%;
+    max-height: 60vh;
     margin: 0 auto;
 }
 
@@ -193,8 +193,8 @@
 #keyexchange-step5 .carousel-item img {
     display: block;
     object-fit: contain;
-    width: 100%;
-    height: calc(100% - 10vh);
+    max-width: 90%;
+    max-height: 60vh;
     margin: 0 auto;
 }
 

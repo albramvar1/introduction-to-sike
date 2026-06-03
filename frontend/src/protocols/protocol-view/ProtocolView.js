@@ -2,7 +2,7 @@ import "./ProtocolView.css";
 import "#protocols/proof-of-identity/ProofOfIdentity.css";
 import "#protocols/key-exchange/KeyExchange.css";
 import "#protocols/encryption/Encryption.css";
-import {useCallback, useEffect, useState} from "react";
+import {useCallback, useEffect, useRef, useState} from "react";
 import {TypeAnimation} from "react-type-animation";
 import { steps as proofSteps } from "#protocols/proof-of-identity/ProofOfIdentity.js";
 import { steps as exchangeSteps } from "#protocols/key-exchange/KeyExchange.js";
@@ -49,14 +49,17 @@ async function sleep(ms) {
 }
 
 function ProtocolView({ protocol }) {
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [automaticPlaying, setAutomaticPlaying] = useState(false);
+    const isPlaying = useRef(false);
+    const setIsPlaying = (newValue) => {
+        isPlaying.current = newValue;
+        setAutomaticPlaying(newValue);
+    }
+
     const [steps, setSteps] = useState([]);
     const [currentStep, setCurrentStep] = useState(0);
     const lastStep = steps.length;
 
-    const togglePlaying = useCallback(() => {
-        setIsPlaying(!isPlaying);
-    }, [isPlaying]);
     const incrementStep = useCallback(() => {
         if (currentStep < lastStep)
             setCurrentStep(currentStep + 1);
@@ -103,18 +106,17 @@ function ProtocolView({ protocol }) {
     }, [handleEnd]);
 
     useEffect(() => {
-        console.log("Loading step number ", currentStep);
         if (currentStep >= lastStep) {
             setIsPlaying(false);
         }
-        if (isPlaying) {
+        if (isPlaying.current) {
             const timeout = steps[currentStep-1] === undefined || steps[currentStep-1].timeout === undefined ? 5 : steps[currentStep-1].timeout
-            sleep(timeout*500).then(() => {
-                if (isPlaying)
+            sleep(timeout*1000).then(() => {
+                if (isPlaying.current)
                     incrementStep();
             });
         }
-    }, [incrementStep, isPlaying, lastStep, currentStep, steps]);
+    }, [incrementStep, lastStep, currentStep, steps, automaticPlaying]);
 
     useEffect(() => {
         let auxSteps;
@@ -136,7 +138,6 @@ function ProtocolView({ protocol }) {
 
         auxSteps.push({ component: <Final /> })
         setSteps(auxSteps);
-        console.log(`Total number of steps: ${steps.length}`);
     }, [protocol, steps]);
     
     const renderStep = (step) => {
@@ -157,8 +158,8 @@ function ProtocolView({ protocol }) {
                     <button id="button-back" className="button beveled" onClick={() => decrementStep()}>
                         <img src="/player/back.svg" alt="Back"/>
                     </button>
-                    <button id="button-play" className="button beveled" onClick={() => togglePlaying()}>
-                        { isPlaying ?
+                    <button id="button-play" className="button beveled" onClick={() => { setIsPlaying(!isPlaying.current); }}>
+                        { isPlaying.current ?
                             <img src="/player/pause.svg" alt="Pause"/> :
                             <img src="/player/play.svg" alt="Play"/>
                         }
