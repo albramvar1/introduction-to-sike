@@ -15,10 +15,11 @@
 
 .nav-links {
     width: 100%;
-    height: 100%;
+    height: calc(5vh - 2px);
     display: grid;
     grid-template-columns: 10vw auto 10vw;
     list-style: none;
+    overflow: hidden;
 }
 
 .nav-links a {
@@ -26,7 +27,7 @@
     height: 100%;
     padding-top: 0.75rem;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: min(1.2rem, 2vh);
     line-height: 100%;
     text-decoration: none;
     color: var(--darker);
@@ -53,9 +54,10 @@
 
 .protocol-links {
     margin: 0 auto;
-    width: 60%;
+    width: 70%;
 }
 .protocol-links .nav-links {
     display: grid;
     grid-template-columns: auto auto auto;
+    grid-gap: 5px;
 }

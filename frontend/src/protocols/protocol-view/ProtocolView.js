@@ -4,9 +4,9 @@ import "#protocols/key-exchange/KeyExchange.css";
 import "#protocols/encryption/Encryption.css";
 import {useCallback, useEffect, useState} from "react";
 import {TypeAnimation} from "react-type-animation";
-import { steps as proofSteps } from "#protocols/proof-of-identity";
-import { steps as exchangeSteps } from "#protocols/key-exchange";
-import { steps as encryptionSteps } from "#protocols/encryption";
+import { steps as proofSteps } from "#protocols/proof-of-identity/ProofOfIdentity.js";
+import { steps as exchangeSteps } from "#protocols/key-exchange/KeyExchange.js";
+import { steps as encryptionSteps } from "#protocols/encryption/Encryption.js";
 import MotionDiv from "#components/MotionDiv";
 
 function StartButton() {
@@ -54,15 +54,26 @@ function ProtocolView({ protocol }) {
     const [currentStep, setCurrentStep] = useState(0);
     const lastStep = steps.length;
 
-    const togglePlaying = () => { setIsPlaying(!isPlaying); };
-    const incrementStep = () => { if (currentStep < lastStep) setCurrentStep(currentStep + 1); };
-    const decrementStep = () => { if (currentStep > 0) setCurrentStep(currentStep - 1); };
+    const togglePlaying = useCallback(() => {
+        setIsPlaying(!isPlaying);
+    }, [isPlaying]);
+    const incrementStep = useCallback(() => {
+        if (currentStep < lastStep)
+            setCurrentStep(currentStep + 1);
+    }, [currentStep, lastStep]);
+    const decrementStep = useCallback(() => {
+        if (currentStep > 0)
+            setCurrentStep(currentStep - 1);
+    }, [currentStep]);
     
     const handleStart = useCallback((event) => {
-        console.log("Starting protocol demonstration");
         incrementStep();
         setIsPlaying(true);
     }, [incrementStep]);
+
+    const handleEnd = useCallback((event) => {
+        setCurrentStep(0);
+    })
 
     useEffect(() => {
         setIsPlaying(false);
@@ -70,9 +81,26 @@ function ProtocolView({ protocol }) {
     }, [protocol]);
 
     useEffect(() => {
-        if (currentStep === 0)
-            document.getElementById("start-button").addEventListener("click", handleStart);
-    }, [handleStart, currentStep])
+        const startButton = document.getElementById("start-button");
+        if (currentStep === 0 && startButton)
+            startButton.addEventListener("click", handleStart);
+
+        return () => {
+            if (startButton)
+                startButton.removeEventListener("click", handleStart);
+        }
+    }, [handleStart, currentStep]);
+
+    useEffect(() => {
+        const endButton = document.getElementById("final");
+        if (endButton)
+            endButton.addEventListener("click", handleEnd);
+
+        return () => {
+            if (endButton)
+                endButton.removeEventListener("click", handleEnd);
+        }
+    }, [handleEnd]);
 
     useEffect(() => {
         console.log("Loading step number ", currentStep);
@@ -81,7 +109,7 @@ function ProtocolView({ protocol }) {
         }
         if (isPlaying) {
             const timeout = steps[currentStep-1] === undefined || steps[currentStep-1].timeout === undefined ? 5 : steps[currentStep-1].timeout
-            sleep(timeout*1000).then(() => {
+            sleep(timeout*500).then(() => {
                 if (isPlaying)
                     incrementStep();
             });

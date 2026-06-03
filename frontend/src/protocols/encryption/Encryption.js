@@ -82,7 +82,7 @@ function Step1() {
 function Step2() {
     const parameters = useParameters();
     const [loading, setLoading] = useState(false);
-    const [ENDPOINT, setEndpoint] = useState(process.env.REACT_APP_DEPLOYED_URL);
+    const [ENDPOINT, setEndpoint] = useState("https://introduction-to-sike-backend.onrender.com");
 
     useEffect(() => {
         if (parameters.message !== parameters.decodedMessage) {
@@ -136,7 +136,7 @@ function Step2() {
 function Step3() {
     return (
         <MotionDiv className="step step3" id="encryption-step3">
-            <BobToAlice id="bob-to-alice">
+            <BobToAlice id="bob-to-alice" distance={-250}>
                 <img className="key" src="/images/key-chain.png" alt="key" />
             </BobToAlice>
             <div className="note" id="note">
@@ -165,7 +165,7 @@ function Step4() {
 function Step5() {
     return (
         <MotionDiv className="step step5" id="encryption-step5">
-            <AliceToBob id="alice-to-bob">
+            <AliceToBob id="alice-to-bob" distance={250}>
                 <img className="envelope" src="/images/envelope.png" alt="envelope" />
             </AliceToBob>
             <div className="note" id="note">

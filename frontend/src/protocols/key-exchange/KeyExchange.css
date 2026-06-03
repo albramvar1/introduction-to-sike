@@ -1,17 +1,22 @@
 /* STEP 1 */
+#keyexchange-step1 .characters {
+    top: -5vh !important;
+}
+
 #keyexchange-step1 .communication-container {
     height: 0;
 }
 
 #keyexchange-step1 .communication-container img {
-    height: 25rem;
+    height: 35vh;
     position: relative;
-    top: -27.5rem;
+    top: -45vh;
 }
 
 #keyexchange-step1 .communication-container .communication-note {
     position: relative;
-    top: -31rem;
+    top: -40vh;
+    max-width: 75vw;
     padding: 1rem 2rem;
 
     background-color: var(--lighter);
@@ -31,8 +36,8 @@
 /* STEP 2 */
 #keyexchange-step2 {
     display: grid;
-    height: calc(100% - 4rem);
-    width: calc(100% - 4rem);
+    height: calc(100% - 4vh);
+    width: calc(100% - 2vw);
     margin: 2rem auto;
     grid-template-columns: 30% 65%;
     grid-gap: 5%;
@@ -50,7 +55,8 @@
 
 #keyexchange-step2 .graph-container img {
     margin: 0 auto;
-    height: 50vh;
+    max-height: 50vh;
+    max-width: 100%;
     display: block;
     object-fit: contain;
 }
@@ -89,7 +95,8 @@
 }
 
 #keyexchange-step3 .profile-picture {
-    height: 10rem;
+    margin-top: 10vh;
+    height: 12.5vh;
 }
 
 #keyexchange-step3 .carousel-container {
@@ -108,21 +115,25 @@
     display: block;
     object-fit: contain;
     width: 100%;
-    height: calc(100% - 12rem);
+    height: calc(100% - 10vh);
     margin: 0 auto;
 }
 
 
 /* STEP 4 */
+#keyexchange-step4 .characters {
+    top: 0 !important;
+}
+
 #keyexchange-step4 .alice-to-bob {
     position: relative;
-    top: -15rem;
+    top: -20vh;
 }
 
 #keyexchange-step4 .bob-to-alice {
     height: 0;
     position: relative;
-    top: -17rem;
+    top: -22.5vh;
 }
 
 #keyexchange-step4 .image-points {
@@ -163,7 +174,8 @@
 }
 
 #keyexchange-step5 .profile-picture {
-    height: 10rem;
+    margin-top: 10vh;
+    height: 12.5vh;
 }
 
 #keyexchange-step5 .carousel-container {
@@ -182,7 +194,7 @@
     display: block;
     object-fit: contain;
     width: 100%;
-    height: calc(100% - 12rem);
+    height: calc(100% - 10vh);
     margin: 0 auto;
 }
 
@@ -205,8 +217,8 @@
 #keyexchange-step6 .dual-graph-container {
     display: grid;
     grid-template-columns: auto auto;
-    grid-gap: 3rem;
-    height: 20rem;
+    grid-gap: 1vw;
+    height: 30vh;
 }
 
 #keyexchange-step6 .dual-graph-container .profile-picture-container {
@@ -217,26 +229,29 @@
 
 #keyexchange-step6 .dual-graph-container img.alice-profile-picture {
     position: relative;
-    left: -4rem;
+    top: 5vh;
+    left: -10vw;
     z-index: 10;
-    height: 10rem;
+    height: 15vh;
 }
 
 #keyexchange-step6 .dual-graph-container img.bob-profile-picture {
     position: relative;
-    left: 14rem;
+    top: 5vh;
+    left: 12.5vw;
     z-index: 10;
-    height: 10rem;
+    height: 15vh;
 }
 
 #keyexchange-step6 .dual-graph-container img.closeup {
     margin: 0 auto;
     object-fit: contain;
-    height: 20rem;
+    height: 20vh;
 }
 
 #keyexchange-step6 .note {
     margin-top: 5rem;
+    max-width: 70vw;
 }
 #keyexchange-step6 .note p {
     padding: 1.5rem 2rem;
@@ -247,19 +262,24 @@
 
 
 /* STEP 7 */
+#keyexchange-step7 .characters {
+    top: -5vh !important;
+}
+
 #keyexchange-step7 .communication-container {
     height: 0;
 }
 
 #keyexchange-step7 .communication-container img {
-    height: 25rem;
+    height: 35vh;
     position: relative;
-    top: -27.5rem;
+    top: -45vh;
 }
 
 #keyexchange-step7 .communication-container .communication-note {
     position: relative;
-    top: -31rem;
+    top: -40vh;
+    max-width: 75vw;
     padding: 1rem 2rem;
 
     background-color: var(--lighter);

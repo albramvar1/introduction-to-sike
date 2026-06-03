@@ -10,7 +10,7 @@ async function sleep(ms) {
 
 function Step1() {
     return (
-        <MotionDiv className="step1" id="identity-step1">
+        <MotionDiv className="step step1" id="identity-step1">
             <img className="proof-of-identity-img" id="proof-of-identity-img" src="/images/zero-knowledge-graph.png"
                  alt="Base diagram for the zero-knowledge proof of identity protocol"/>
             <div className="note" id="note">
@@ -25,7 +25,7 @@ function Step1() {
 
 function Step2() {
     return (
-        <MotionDiv className="step2" id="identity-step2">
+        <MotionDiv className="step step2" id="identity-step2">
             <img className="proof-of-identity-img" id="proof-of-identity-img" src="/images/zero-knowledge-graph.png"
                  alt="Base diagram for the zero-knowledge proof of identity protocol"/>
             <div className="note" id="note">
@@ -38,7 +38,7 @@ function Step2() {
 
 function Step3() {
     return (
-        <MotionDiv className="step3" id="identity-step3">
+        <MotionDiv className="step step3" id="identity-step3">
             <Characters hideBob={true} />
             <div className="note" id="note">
                 Alice chooses a random point <span className="math italic">R</span> and computes a concrete instance of the diagram we showed before.
@@ -49,7 +49,7 @@ function Step3() {
 
 function Step4() {
     return (
-        <MotionDiv className="step4" id="identity-step4">
+        <MotionDiv className="step step4" id="identity-step4">
             <AliceToBob distance={270}>
                 <div className="message" id="message"><span className="math italic">E/⟨R⟩, E/⟨S,R⟩</span></div>
             </AliceToBob>
@@ -74,7 +74,7 @@ function Step5(callback, deps) {
     }, [toggleB]);
     
     return (
-        <MotionDiv className="step5" id="identity-step5">
+        <MotionDiv className="step step5" id="identity-step5">
             <BobToAlice distance={-290}>
                 <div className="message" id="message"><span className="math italic">b = {b}</span></div>
             </BobToAlice>
@@ -87,7 +87,7 @@ function Step5(callback, deps) {
 
 function Step6() {
     return (
-        <MotionDiv className="step6" id="identity-step6">
+        <MotionDiv className="step step6" id="identity-step6">
             <Characters />
             <div className="grid-container" id="grid-container">
                 <div className="b-0" id="b-0">

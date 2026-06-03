@@ -1,7 +1,7 @@
 /* STEP 1 */
 #identity-step1 .note {
-    width: 50rem;
-    margin-top: 3rem;
+    width: 50vw;
+    margin: 3rem auto;
     padding: 1rem 2rem;
 
     background-color: var(--lighter);
@@ -11,8 +11,8 @@
 
 /* STEP 2 */
 #identity-step2 .note {
-    width: 50rem;
-    margin-top: 3rem;
+    width: 50vw;
+    margin: 3rem auto;
     padding: 1rem 2rem;
 
     background-color: var(--lighter);
@@ -22,12 +22,12 @@
 
 /* STEP 3 */
 #identity-step3 .note {
-    width: 30rem;
+    width: 30vw;
     padding: 1rem 2rem;
 
     position: relative;
-    top: -15rem;
-    left: 20rem;
+    top: -15vh;
+    left: 15rem;
 
     background-color: var(--lighter);
     border-radius: 0.5rem;
@@ -40,13 +40,14 @@
 
 /* STEP 4 */
 #identity-step4 .message {
-    font-size: 1.25rem;
     position: relative;
-    top: -17.5rem;
+    top: -15vh;
 }
 
 #identity-step4 .note {
-    width: 30rem;
+    z-index: 100;
+    width: 30vw;
+    margin: 3rem auto;
     padding: 1rem 2rem;
 
     background-color: var(--lighter);
@@ -56,13 +57,14 @@
 
 /* STEP 5 */
 #identity-step5 .message {
-    font-size: 1.25rem;
     position: relative;
-    top: -17.5rem;
+    top: -15vh;
 }
 
 #identity-step5 .note {
-    width: 30rem;
+    z-index: 100;
+    width: 30vw;
+    margin: 3rem auto;
     padding: 1rem 2rem;
 
     background-color: var(--lighter);
@@ -71,16 +73,26 @@
 }
 
 /* STEP 6 */
+#identity-step6 .characters {
+    margin-top: 15vh;
+}
+
 #identity-step6 .grid-container {
     margin: 0 auto;
-    width: 30rem;
+    width: 40vw;
 
     display: grid;
     grid-template-columns: auto auto;
-    grid-gap: 3rem;
+    grid-gap: 1vw;
 
     position: relative;
-    top: -15rem;
+    top: -25vh;
+}
+
+#identity-step6 .grid-container div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 #identity-step6 .note {
@@ -93,7 +105,8 @@
 }
 
 #identity-step6 .conclusion {
-    width: 30rem;
+    width: 50vw;
+    margin: 3rem auto;
     position: relative;
-    top: -10rem;
+    top: -10vh;
 }

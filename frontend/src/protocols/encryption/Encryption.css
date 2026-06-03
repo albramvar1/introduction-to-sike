@@ -58,15 +58,18 @@
 }
 
 /* STEP 3 */
+#encryption-step3 .characters {
+    top: 20vh !important;
+}
+
 #encryption-step3 img.key {
     width: 3rem;
     position: relative;
-    top: -20rem;
-    right: -20rem;
+    top: -15vh;
 }
 
 #encryption-step3 .note {
-    height: 0;
+    margin-top: 40vh;
 }
 
 #encryption-step3 .note > p {
@@ -109,15 +112,18 @@
 }
 
 /* STEP 5 */
+#encryption-step5 .characters {
+    top: 20vh !important;
+}
+
 #encryption-step5 img.envelope {
     width: 3rem;
     position: relative;
-    top: -20rem;
-    right: 20rem;
+    top: -15vh;
 }
 
 #encryption-step5 .note {
-    height: 0;
+    margin-top: 40vh;
 }
 
 #encryption-step5 .note > p {

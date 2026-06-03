@@ -1,5 +1,5 @@
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,6 +13,10 @@
     position: absolute;
     z-index: -1;
     width: 100vw;
+    min-height: 100vh;
+}
+
+.grainient-container {
     min-height: 100vh;
 }
 

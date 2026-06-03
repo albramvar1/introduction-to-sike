@@ -19,9 +19,9 @@ const Hero = () => {
             />*/}
             <div className="hero-background" id="hero-background">
                 <Grainient
-                    color1="#d0d0d0"
-                    color2="#787878"
-                    color3="#929292"
+                    color1="#b1b1b1"
+                    color2="#dadada"
+                    color3="#b1b1b1"
                     timeSpeed={0.25}
                     colorBalance={0}
                     warpStrength={1}

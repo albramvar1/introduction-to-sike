@@ -1,4 +1,4 @@
-import { steps } from "./index";
+import { steps } from "./Encryption";
 import { render, screen } from "../../test-utils";
 import {act} from "react";
 import {fireEvent, getByText, waitFor} from "@testing-library/react";

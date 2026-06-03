@@ -20,12 +20,6 @@ function ErrorFallback({ error, resetErrorBoundary }) {
 }
 
 function App() {
-    useEffect(() => {
-        fetch(process.env.DEPLOYED_URL)
-            .then(response => console.log("Successfully connected to backend: " + response.status))
-            .catch(error => console.error("Error generating key:", error));
-    }, []);
-
     return (
         <ParametersProvider>
             <ErrorBoundary FallbackComponent={ErrorFallback}>

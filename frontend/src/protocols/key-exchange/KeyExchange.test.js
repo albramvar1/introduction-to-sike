@@ -1,4 +1,4 @@
-import { steps } from "./index";
+import { steps } from "./KeyExchange";
 import { render, screen } from "../../test-utils";
 
 describe("Key exchange protocol steps", () => {

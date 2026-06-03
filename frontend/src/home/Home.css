@@ -45,12 +45,11 @@ html {
 }
 
 .protocols-wrapper {
-    height: 70vh;
-    padding-bottom: 10vh;
+    min-height: 70vh;
 }
 
 .about-wrapper {
-    height: 85vh;
+    min-height: 85vh;
     padding-bottom: 10vh;
 
 }
