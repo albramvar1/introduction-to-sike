@@ -4,6 +4,9 @@
     top: 0;
     left: 0;
 
+    display: flex;
+    flex-direction: row;
+
     padding: 1.5vh 0 0 0;
     width: 100%;
     height: 6vh;
@@ -14,8 +17,7 @@
 }
 
 .nav-links {
-    width: 100%;
-    height: calc(5vh - 2px);
+    width: calc(100% - 5vw);
     display: grid;
     grid-template-columns: 10vw auto 10vw;
     list-style: none;
@@ -23,9 +25,11 @@
 }
 
 .nav-links a {
-    display: inline-block;
     height: 100%;
     padding-top: 0.75rem;
+
+    display: inline-block;
+
     text-align: center;
     font-size: min(1.2rem, 2vh);
     line-height: 100%;
@@ -57,7 +61,58 @@
     width: 70%;
 }
 .protocol-links .nav-links {
+    height: 100%;
     display: grid;
     grid-template-columns: auto auto auto;
     grid-gap: 5px;
+}
+
+.language-toggle {
+    width: 5vw;
+    height: 100%;
+    padding-top: 0.75rem;
+
+    display: inline-block;
+
+    text-align: center;
+    font-size: min(1.2rem, 2vh);
+    line-height: 100%;
+    text-decoration: none;
+    color: var(--darker);
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.language-toggle img {
+    max-width: 5vw;
+    max-height: 3vh;
+    object-fit: contain;
+}
+
+.dropdown-menu {
+    width: 10vw;
+    padding: 2vh 0;
+
+    background: var(--white);
+    border-radius: 0 0 5px 5px;
+    box-shadow:0 2px 5px rgb(0, 0, 0, 0.1);
+
+    position: relative;
+    right: 5vw;
+    top: calc(1vh + 2px);
+}
+
+.dropdown-menu-item {
+    display: block;
+    padding: 1vh 0;
+    width: 10vw;
+    background-color: var(--white);
+    text-align: center;
+    line-height: 100%;
+}
+
+.dropdown-menu-item img {
+    display: inline-block;
+    max-height: 2.5vh;
+    margin-right: 20px;
 }

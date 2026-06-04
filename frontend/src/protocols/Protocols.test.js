@@ -6,10 +6,8 @@ describe("Protocols", () => {
     test("renders protocols correctly", () => {
         render(<Protocols />);
 
-        expect(screen.getByRole("heading", { name: /protocols/i })).toBeInTheDocument();
-        expect(screen.getByRole("link", { name: /zero-knowledge proof of identity/i })).toBeInTheDocument();
-        expect(screen.getByRole("link", { name: /key exchange/i })).toBeInTheDocument();
-        expect(screen.getByRole("link", { name: /encryption and decryption/i })).toBeInTheDocument();
+        expect(document.getElementById("protocol-title")).toBeInTheDocument();
+        expect(document.getElementById("protocols-list")).toBeInTheDocument();
     });
 
     test("handle scroll works correctly", () => {

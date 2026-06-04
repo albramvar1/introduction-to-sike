@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from "react";
 import "./Protocols.css";
-
-const protocols = [
-    {
-        title: "Zero-knowledge proof of identity",
-        description: "How do we prove who we are? Discover the basis of SIKE.",
-        url: "/protocols/proof-of-identity",
-    },
-    {
-        title: "Key exchange",
-        description: "Similarly structured as Diffie-Hellman, this key exchange protocol makes the most of today's cryptography.",
-        url: "/protocols/key-exchange",
-    },
-    {
-        title: "Encryption and decryption",
-        description: "An adaptation of Elgamal to use the SIKE protocol",
-        url: "/protocols/encryption",
-    }
-];
+import {useTranslation} from "react-i18next";
 
 function Protocols() {
     const [visible, setVisible] = useState(window.location.pathname.includes("protocols"));
+    const { t } = useTranslation();
+
+    const protocols = [
+        {
+            title: t("protocols.proofOfIdentity.title"),
+            description: t("protocols.proofOfIdentity.description"),
+            url: "/protocols/proof-of-identity",
+        },
+        {
+            title: t("protocols.keyExchange.title"),
+            description: t("protocols.keyExchange.description"),
+            url: "/protocols/key-exchange",
+        },
+        {
+            title: t("protocols.encryption.title"),
+            description: t("protocols.encryption.description"),
+            url: "/protocols/encryption",
+        }
+    ];
 
     useEffect(() => {
         const handleScroll = () => {
@@ -39,8 +41,8 @@ function Protocols() {
 
     return (
         <section className={`protocols fade-in ${visible ? "show" : ""}`} id="protocols">
-            <h2>Protocols</h2>
-            <div className="protocols-list">
+            <h2 id="protocol-title">{t("protocols.title")}</h2>
+            <div className="protocols-list" id="protocols-list">
                 {protocols.map((protocol, index) => (
                     <a href={protocol.url} key={index}  className={`protocols-card fade-in ${visible ? "show" : ""}`}>
                         <div className="content-wrapper">

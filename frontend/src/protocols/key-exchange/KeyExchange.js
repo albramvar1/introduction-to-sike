@@ -5,8 +5,11 @@ import Characters from "#components/Characters";
 import GraphView from "#components/GraphView";
 import BobToAlice from "#components/BobToAlice";
 import AliceToBob from "#components/AliceToBob";
+import {useTranslation} from "react-i18next";
 
 function Step1() {
+    const { t } = useTranslation();
+
     return (
         <MotionDiv className="step step1" id="keyexchange-step1">
             <Characters/>
@@ -14,16 +17,16 @@ function Step1() {
                 <img src="/images/unsecure-communication.png" alt="Unsecured connection" className="communication-image"/>
                 <div className="communication-note">
                     <div>
-                        The public parameters to establish a secure connections are:
+                        {t("keyExchange.step1.part1")}
                         <ul>
-                            <li>A big prime number <span className="math italic">p</span></li>
-                            <li>An initial elliptic curve defined from the <span>finite group <span className="math">F<span
+                            <li>{t("keyExchange.step1.part2")}<span className="math italic">p</span></li>
+                            <li>{t("keyExchange.step1.part3")}<span className="math">F<span
                                 className="math subindex italic">p<span
-                                className="math superindex">2</span></span></span></span></li>
-                            <li>A pair of initial points <span className="math italic">{"{"} P<span
+                                className="math superindex">2</span></span></span></li>
+                            <li>{t("keyExchange.step1.part4")}<span className="math italic">{"{"} P<span
                                 className="math subindex">A</span>, Q<span className="math subindex">A</span> {"}"}, {"{"} P<span
                                 className="math subindex">B</span>, Q<span
-                                className="math subindex">B</span> {"}"}</span> for each Alice and Bob, respectively.
+                                className="math subindex">B</span> {"}"}</span>{t("keyExchange.step1.part5")}
                             </li>
                         </ul>
                     </div>
@@ -34,6 +37,8 @@ function Step1() {
 }
 
 function Step2() {
+    const { t } = useTranslation();
+
     return (
         <MotionDiv className="step step2" id="keyexchange-step2">
             <div className="graph-container" id="graph-container">
@@ -41,14 +46,14 @@ function Step2() {
             </div>
             <div className="note-container" id="note-container">
                 <div className="note">
-                    <p>This is the 2-isogeny graph for the prime number <span className="math">p = 463 = 2<span className="superindex">4</span> · 3<span className="superindex">3</span> + 1</span>.</p>
-                    <p>This graph represents elliptic curves as the nodes (grouped by a characteristic of them called <span className="italic">j-invariant</span>) and the isogenies between these curves as the edges.</p>
-                    <p className="italic">Why is this graph so important?</p>
-                    <p>Because it will allow us to visualize <span className="italic">how</span> the SIKE protocol works.</p>
-                    <p>As we"ve already established, the primer we"ve chosen was <span className="math">p = 463 = 2<span className="superindex">4</span> · 3<span className="superindex">3</span> + 1</span>.</p>
-                    <p>The exact bases and exponents used to calculate the prime are incredibly important because they set how the user will have to move through the graph.</p>
-                    <p>This means Alice will have to travel through 4 nodes in the 2-isogeny graph, and Bob will have to travel through 3 nodes in the 3-isogeny graph (or viceversa).</p>
-                    <p>This means that from the public initial elliptic curve <span className="math">E<span className="subindex">0</span></span>, Alice and Bob reach a different intermediate isogeny <span className="math italic">E<span className="subindex">A</span></span>, <span className="math italic">E<span className="subindex">B</span></span>, respectively.</p>
+                    <p>{t("keyExchange.step2.part1")}<span className="math">p = 463 = 2<span className="superindex">4</span> · 3<span className="superindex">3</span> + 1</span>.</p>
+                    <p>{t("keyExchange.step2.part2")}<span className="italic">{t("keyExchange.step2.jInvariant")}</span>){t("keyExchange.step2.part3")}</p>
+                    <p className="italic">{t("keyExchange.step2.problematic")}</p>
+                    <p>{t("keyExchange.step2.part4")}<span className="italic">{t("keyExchange.step2.how")}</span>{t("keyExchange.step2.part5")}</p>
+                    <p>{t("keyExchange.step2.part6")}<span className="math">p = 463 = 2<span className="superindex">4</span> · 3<span className="superindex">3</span> + 1</span>.</p>
+                    <p>{t("keyExchange.step2.part7")}</p>
+                    <p>{t("keyExchange.step2.part8")}</p>
+                    <p>T{t("keyExchange.step2.part9")}<span className="math">E<span className="subindex">0</span></span>{t("keyExchange.step2.part10")}<span className="math italic">E<span className="subindex">A</span></span>, <span className="math italic">E<span className="subindex">B</span></span>{t("keyExchange.step2.part11")}</p>
                 </div>
             </div>
         </MotionDiv>
@@ -67,6 +72,8 @@ function Step3() {
 }
 
 function Step4() {
+    const { t } = useTranslation();
+
     return (
         <MotionDiv className="step step4" id="keyexchange-step4">
             <AliceToBob className="alice-to-bob" distance={250}>
@@ -82,13 +89,15 @@ function Step4() {
                 </span>
             </BobToAlice>
             <div className="note" id="note">
-                <p>Alice sends the image of Bob"s public initial points using her newly found isogeny <span className="math italic">E<span className="subindex">A</span></span>. Ídem with Bob, although using Alice"s public initial points and his found isogeny <span className="math italic">E<span className="subindex">B</span></span>.</p>
+                <p>{t("keyExchange.step4.part1")}<span className="math italic">E<span className="subindex">A</span></span>{t("keyExchange.step4.part2")}<span className="math italic">E<span className="subindex">B</span></span>.</p>
             </div>
         </MotionDiv>
     )
 }
 
 function Step5() {
+    const { t } = useTranslation();
+
     return (
         <MotionDiv className="step step5" id="keyexchange-step5">
             <div className="dual-graph-container" id="dual-graph-container">
@@ -96,13 +105,15 @@ function Step5() {
                 <GraphView firstHalf={false} isAlice={false} />
             </div>
             <div className="note">
-                <p>And then, we continue the journey through the graph!</p>
+                <p>{t("keyExchange.step5")}</p>
             </div>
         </MotionDiv>
     )
 }
 
 function Step6() {
+    const { t } = useTranslation();
+
     return (
         <MotionDiv className="step step6" id="keyexchange-step6">
             <div className="dual-graph-container" id="dual-graph-container">
@@ -120,13 +131,15 @@ function Step6() {
                 </div>
             </div>
             <div className="note" id="note">
-                <p>And we arrive to the same isogeny <span className="math italic">E<span className="subindex">AB</span></span> that will function as the shared secret key.</p>
+                <p>{t("keyExchange.step6.part1")}<span className="math italic">E<span className="subindex">AB</span></span>{t("keyExchange.step6.part2")}</p>
             </div>
         </MotionDiv>
     )
 }
 
 function Step7() {
+    const { t } = useTranslation();
+
     return (
         <MotionDiv className="step step7" id="keyexchange-step7">
             <Characters/>
@@ -134,7 +147,7 @@ function Step7() {
                 <img src="/images/secure-communication.png" alt="Secured connection" className="communication-image"/>
                 <div className="communication-note">
                     <div>
-                        To finally secure our communication channels.
+                        {t("keyExchange.step7")}
                     </div>
                 </div>
             </div>

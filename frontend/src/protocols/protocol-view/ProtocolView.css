@@ -27,7 +27,7 @@
 
 .content .start-button {
     margin: 0 auto;
-    width: max(10vw, 150px);
+    width: max(10vw, 160px);
     height: max(7.5vh, 60px);
     border: none;
 
@@ -94,7 +94,7 @@
 .final {
     margin: 0 auto;
     width: max(35vw, 350px);
-    height: max(7.5vh, 60px);
+    height: max(7.5vh, 80px);
     border: none;
 
     font-size: 2rem;

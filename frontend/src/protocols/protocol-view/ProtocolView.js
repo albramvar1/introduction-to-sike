@@ -8,47 +8,14 @@ import { steps as proofSteps } from "#protocols/proof-of-identity/ProofOfIdentit
 import { steps as exchangeSteps } from "#protocols/key-exchange/KeyExchange.js";
 import { steps as encryptionSteps } from "#protocols/encryption/Encryption.js";
 import MotionDiv from "#components/MotionDiv";
-
-function StartButton() {
-    return (
-        <MotionDiv className="start-button beveled" id="start-button">
-            <TypeAnimation
-                sequence={[
-                    "", 1000,
-                    "start!", 5000
-                ]}
-                wrapper="span"
-                speed={10}
-                repeat={Infinity}
-                className={"quantico-regular"}
-                id="start-button"
-            />
-        </MotionDiv>
-    );
-}
-
-function Final() {
-    return (
-        <MotionDiv className="final beveled" id="final">
-            <TypeAnimation
-                sequence={[
-                    "and that'd be all!", 1000,
-                    "hope you've enjoyed this presentation", 5000
-                ]}
-                wrapper="span"
-                speed={10}
-                repeat={Infinity}
-                className={"quantico-regular"}
-            />
-        </MotionDiv>
-    )
-}
+import {useTranslation} from "react-i18next";
 
 async function sleep(ms) {
     await new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function ProtocolView({ protocol }) {
+    const { t, i18n } = useTranslation();
     const [automaticPlaying, setAutomaticPlaying] = useState(false);
     const isPlaying = useRef(false);
     const setIsPlaying = (newValue) => {
@@ -61,7 +28,7 @@ function ProtocolView({ protocol }) {
     const lastStep = steps.length;
 
     const incrementStep = useCallback(() => {
-        if (currentStep < lastStep)
+        if (currentStep < lastStep+1)
             setCurrentStep(currentStep + 1);
     }, [currentStep, lastStep]);
     const decrementStep = useCallback(() => {
@@ -76,6 +43,7 @@ function ProtocolView({ protocol }) {
 
     const handleEnd = useCallback((event) => {
         setCurrentStep(0);
+        setIsPlaying(false);
     })
 
     useEffect(() => {
@@ -136,16 +104,53 @@ function ProtocolView({ protocol }) {
                 break;
         }
 
-        auxSteps.push({ component: <Final /> })
+        //auxSteps.push({ component: <Final /> })
         setSteps(auxSteps);
     }, [protocol, steps]);
     
     const renderStep = (step) => {
         if (step > 0 && step <= lastStep) {
-            return steps[step-1].component
+            return steps[step - 1].component
+        } else if (currentStep > lastStep) {
+            return <Final />
         } else {
             return <StartButton />
         }
+    }
+
+    function StartButton() {
+        return (
+            <MotionDiv className="start-button beveled" id="start-button">
+                <TypeAnimation
+                    sequence={[
+                        "", 1000,
+                        t("protocolView.start"), 5000
+                    ]}
+                    wrapper="span"
+                    speed={10}
+                    repeat={Infinity}
+                    className={"quantico-regular"}
+                    id="start-button"
+                />
+            </MotionDiv>
+        );
+    }
+
+    function Final() {
+        return (
+            <MotionDiv className="final beveled" id="final">
+                <TypeAnimation
+                    sequence={[
+                        t("protocolView.end.part1"), 1000,
+                        t("protocolView.end.part2"), 5000
+                    ]}
+                    wrapper="span"
+                    speed={10}
+                    repeat={Infinity}
+                    className={"quantico-regular"}
+                />
+            </MotionDiv>
+        )
     }
 
     return (
@@ -155,7 +160,10 @@ function ProtocolView({ protocol }) {
                     { renderStep(currentStep) }
                 </div>
                 <div className="buttons">
-                    <button id="button-back" className="button beveled" onClick={() => decrementStep()}>
+                    <button id="button-back" className="button beveled" onClick={() => {
+                        setIsPlaying(false);
+                        decrementStep();
+                    }}>
                         <img src="/player/back.svg" alt="Back"/>
                     </button>
                     <button id="button-play" className="button beveled" onClick={() => { setIsPlaying(!isPlaying.current); }}>
@@ -164,7 +172,10 @@ function ProtocolView({ protocol }) {
                             <img src="/player/play.svg" alt="Play"/>
                         }
                     </button>
-                    <button id="button-forward" className="button beveled" onClick={() => incrementStep()}>
+                    <button id="button-forward" className="button beveled" onClick={() => {
+                        setIsPlaying(false);
+                        incrementStep();
+                    }}>
                         <img src="/player/forward.svg" alt="Forward"/>
                     </button>
                 </div>

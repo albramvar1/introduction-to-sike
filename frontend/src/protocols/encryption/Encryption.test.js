@@ -24,9 +24,8 @@ describe("Encryption protocol steps", () => {
     test("renders step 1 correctly", () => {
         render(steps[0].component);
 
-        expect(screen.getByRole("heading", { name: /let's try it out/i })).toBeInTheDocument();
-        expect(screen.getByLabelText(/write a message to bob/i)).toBeInTheDocument();
-
+        expect(document.getElementById("encryption-step1-title")).toBeInTheDocument();
+        expect(document.getElementById("message-input-group")).toBeInTheDocument();
     });
 
     test("step 1 handle change", () => {
@@ -51,14 +50,14 @@ describe("Encryption protocol steps", () => {
         render(steps[1].component);
 
         expect(document.getElementById("key-container")).toBeInTheDocument();
-        expect(screen.getByRole("button", { name: /generate new key/i })).toBeInTheDocument();
+        expect(document.getElementById("generate-new-key")).toBeInTheDocument();
     });
 
     test("step 2 on click", async () => {
         render(steps[1].component);
 
         const originalKeyValue = document.getElementById("key-value").innerHTML;
-        const button = screen.getByRole("button", { name: /generate new key/i });
+        const button = document.getElementById("generate-new-key");
         act(() => { button.click() });
         await waitFor(() => {
             expect(document.getElementById("key-value")).toBeInTheDocument();

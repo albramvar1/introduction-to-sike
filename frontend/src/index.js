@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import App from "./App";
 import ScrollToTop from "#components/ScrollToTop";
+import i18n from "#src/i18n/i18n";
 
 const theme = createTheme({
     palette: {

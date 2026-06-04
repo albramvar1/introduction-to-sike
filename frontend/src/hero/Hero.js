@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import "./Hero.css";
 import DecryptingText from "#components/DecryptingText";
 import Grainient from "#components/Grainient";
+import {useTranslation} from "react-i18next";
 
 const Hero = () => {
+    const {t} = useTranslation();
+
     return (
         <section className="hero" id="home-hero">
             {/*<video
@@ -51,7 +54,7 @@ const Hero = () => {
                     transition={{duration: 1}}
                 >
                     <h1 id="hero-title">
-                        <DecryptingText targetText={"Introduction to "} className="decrypting-hero-text" />
+                        <DecryptingText targetText={t("hero.title")} className="decrypting-hero-text" />
                         <a href={"https://sike.org"}><DecryptingText targetText={"SIKE"} className="decrypting-hero-text" /></a>
                     </h1>
                 </motion.div>
@@ -60,7 +63,7 @@ const Hero = () => {
                     animate={{opacity: 1}}
                     transition={{delay: 0.5, duration: 1}}
                 >
-                    An intuitive and graphic explanation of the protocol, its functioning and its mathematical basis.
+                    {t("hero.description")}
                 </motion.p>
             </div>
         </section>

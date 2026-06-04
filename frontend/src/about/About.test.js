@@ -16,9 +16,9 @@ describe("About", () => {
     test("renders about section correctly", () => {
         render(<About />);
 
-        expect(screen.getByText(/^About$/i)).toBeInTheDocument();
-        expect(screen.getByText(/^Links of interest$/i)).toBeInTheDocument();
-        expect(screen.getByText(/^Relevant articles$/i)).toBeInTheDocument();
+        expect(document.getElementById("about-heading")).toBeInTheDocument();
+        expect(document.getElementById("links-of-interest")).toBeInTheDocument();
+        expect(document.getElementById("relevant-articles")).toBeInTheDocument();
     });
 
     test("handle scroll works correctly", () => {

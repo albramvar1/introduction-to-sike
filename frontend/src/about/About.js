@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./About.css";
+import {useTranslation} from "react-i18next";
 
 const About = () => {
     const [visible, setVisible] = useState(window.location.pathname.includes("about"));
+    const { t } = useTranslation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -21,21 +23,19 @@ const About = () => {
 
     return (
         <section  className={`about fade-in ${visible ? "show" : ""}`} id="about">
-            <h2 id="about-heading">About</h2>
-            <p>
-                This project was carried out as a TFG for the University of Seville. For more information please refer to <a href="mailto:albramvar1@alum.us.es">Alba Ramos Vargas</a>, who created this page, or <a href="mailto:armario@us.es">José Andrés Armario Sampalo</a>, who tutored it.
-            </p>
-            <h3 id="links-of-interest">Links of interest</h3>
+            <h2 id="about-heading">{t("about.title")}</h2>
+            <p>{t("about.subtitle")}</p>
+            <h3 id="links-of-interest">{t("about.links.title")}</h3>
             <ul>
-                <li><a href="https://www.sike.org">SIKE official page</a></li>
-                <li><a href="https://github.com/wultra/sike-java">Repository on Github of the Java implementation of SIKE</a></li>
-                <li><a href="https://github.com/albramvar1/introduction-to-sike">Repository on Github of this page</a></li>
+                <li><a href="https://www.sike.org">{t("about.links.sike")}</a></li>
+                <li><a href="https://github.com/wultra/sike-java">{t("about.links.sikeJava")}</a></li>
+                <li><a href="https://github.com/albramvar1/introduction-to-sike">{t("about.links.tfg")}</a></li>
             </ul>
-            <h3 id="relevant-articles">Relevant articles</h3>
+            <h3 id="relevant-articles">{t("about.articles.title")}</h3>
             <ul>
-                <li><a href="https://www.degruyterbrill.com/document/doi/10.1515/jmc-2012-0015/html#articleAbstractView">Towards quantum-resistant cryptosystems from supersingular elliptic curve isogenies.</a></li>
-                <li><a href="https://eprint.iacr.org/2019/1321.pdf">Supersingular isogeny key exchange for beginners</a></li>
-                <li><a href="https://eprint.iacr.org/2022/975">An efficient key recovery attack on SIDH</a></li>
+                <li><a href="https://www.degruyterbrill.com/document/doi/10.1515/jmc-2012-0015/html#articleAbstractView">{t("about.articles.towards")}</a></li>
+                <li><a href="https://eprint.iacr.org/2019/1321.pdf">{t("about.articles.beginners")}</a></li>
+                <li><a href="https://eprint.iacr.org/2022/975">{t("about.articles.efficientAttack")}</a></li>
             </ul>
         </section>
     );

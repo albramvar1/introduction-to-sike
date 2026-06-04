@@ -11,8 +11,10 @@ import MotionDiv from "#components/MotionDiv";
 import Characters from "#components/Characters";
 import BobToAlice from "#components/BobToAlice";
 import AliceToBob from "#components/AliceToBob";
+import {useTranslation} from "react-i18next";
 
 function Step1() {
+    const { t } = useTranslation();
     const [error, setError] = useState(false)
     const [errorMessage, setErrorMessage] = useState(null)
     const parameters = useParameters();
@@ -46,9 +48,9 @@ function Step1() {
 
     return (
         <MotionDiv className="step step1" id="encryption-step1">
-            <h1>Let's try it out!</h1>
-            <FormControl className="message-input-group">
-                <FormLabel htmlFor="message" className="">Write a message to Bob</FormLabel>
+            <h1 id="encryption-step1-title">{t("encryption.step1.title")}</h1>
+            <FormControl className="message-input-group" id="message-input-group">
+                <FormLabel htmlFor="message" className="">{t("encryption.step1.subtitle")}</FormLabel>
                 <TextField
                     error={error}
                     helperText={error ? undefined : errorMessage}
@@ -80,6 +82,7 @@ function Step1() {
 }
 
 function Step2() {
+    const { t } = useTranslation();
     const parameters = useParameters();
     const [loading, setLoading] = useState(false);
     const [ENDPOINT, setEndpoint] = useState("https://introduction-to-sike-backend.onrender.com");
@@ -93,7 +96,6 @@ function Step2() {
     async function onClick() {
         setLoading(true);
         document.getElementById("generate-new-key").disabled = true;
-        //console.log("Generating new key pair from " + ENDPOINT);
         await fetch(ENDPOINT + "/sike/generate-key-pair?message=" + parameters.message)
             .then(response => response.json())
             .then(data => {
@@ -126,7 +128,7 @@ function Step2() {
                     id="generate-new-key"
                     onClick={onClick}
                 >
-                    Generate new key
+                    {t("encryption.step2")}
                 </Button>
             </div>
         </MotionDiv>
@@ -134,26 +136,29 @@ function Step2() {
 }
 
 function Step3() {
+    const { t } = useTranslation();
+
     return (
         <MotionDiv className="step step3" id="encryption-step3">
             <BobToAlice id="bob-to-alice" distance={-250}>
                 <img className="key" src="/images/key-chain.png" alt="key" />
             </BobToAlice>
             <div className="note" id="note">
-                <p>First, Bob sends his <span className="code">PUBLIC KEY</span> to Alice.</p>
+                <p>{t("encryption.step3.part1")}<span className="code">{t("encryption.step3.part2")}</span>{t("encryption.step3.part3")}</p>
             </div>
         </MotionDiv>
     )
 }
 
 function Step4() {
+    const { t } = useTranslation();
     const parameters = useParameters();
 
     return (
         <MotionDiv className="step step4" id="encryption-step4">
             <Characters hideBob={true} />
             <div className="message-encoding" id="message-encoding">
-                <p>Then, Alice encodes the message...</p>
+                <p>{t("encryption.step4")}</p>
                 <div className="message">{parameters.message}</div>
                 <ArrowBigDownDashIcon className="arrow" />
                 <div className="encoded-message">{parameters.encodedMessage}</div>
@@ -163,26 +168,29 @@ function Step4() {
 }
 
 function Step5() {
+    const { t } = useTranslation();
+
     return (
         <MotionDiv className="step step5" id="encryption-step5">
             <AliceToBob id="alice-to-bob" distance={250}>
                 <img className="envelope" src="/images/envelope.png" alt="envelope" />
             </AliceToBob>
             <div className="note" id="note">
-                <p>...and she sends the <span className="code">ENCODED MESSAGE</span> to Bob.</p>
+                <p>{t("encryption.step5.part1")}<span className="code">{t("encryption.step5.part2")}</span>{t("encryption.step5.part3")}</p>
             </div>
         </MotionDiv>
     )
 }
 
 function Step6() {
+    const { t } = useTranslation();
     const parameters = useParameters();
 
     return (
         <MotionDiv className="step step6" id="encryption-step6">
             <Characters hideAlice={true} />
             <div className="message-decoding" id="message-decoding">
-                <p>Finally, Bob decodes the message to get the original.</p>
+                <p>{t("encryption.step6")}</p>
                 <div className="encoded-message">{parameters.encodedMessage}</div>
                 <ArrowBigDownDashIcon className="arrow" />
                 <div className="decoded-message">{parameters.decodedMessage}</div>

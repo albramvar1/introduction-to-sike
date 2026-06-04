@@ -66,4 +66,15 @@ describe("Navbar", () => {
         act(() => { linkAboutElement.click(); });
         expect(linkAboutElement).toHaveClass("active");
     });
+
+    test("i18n renders in navbar", () => {
+        render(<Navbar />);
+
+        const languageTrigger = document.getElementById("language-trigger");
+        expect(languageTrigger).toBeInTheDocument();
+
+        act(() => { languageTrigger.click(); });
+
+        expect(document.getElementsByClassName("dropdown-menu-item").length).toBeGreaterThan(0);
+    });
 });
