@@ -23,6 +23,7 @@ i18n
                     currentLanguage: "en",
                     navbar: {
                         home: "Home",
+                        protocols: "Protocols",
                         proofOfIdentity: "Zero-knowledge proof of identity",
                         keyExchange: "Key exchange",
                         encryption: "Encryption and decryption",
@@ -152,6 +153,10 @@ i18n
                         },
                         step6: "Finally, Bob decodes the message to get the original.",
                     },
+                    footer: {
+                        title: "Introduction to SIKE",
+                        subtitle: "A dissertation by ",
+                    },
                 }
             },
             es: {
@@ -159,6 +164,7 @@ i18n
                     currentLanguage: "es",
                     navbar: {
                         home: "Inicio",
+                        protocols: "Protocolos",
                         proofOfIdentity: "Prueba de identidad",
                         keyExchange: "Intercambio de claves",
                         encryption: "Cifrado y descifrado",
@@ -287,6 +293,10 @@ i18n
                             part3: " a Bob.",
                         },
                         step6: "Finalmente, Bob descifra el mensaje y obtiene el original.",
+                    },
+                    footer: {
+                        title: "Introducción a SIKE",
+                        subtitle: "Un TFG por ",
                     },
                 }
             }

@@ -1,7 +1,5 @@
 import { steps } from "./ProofOfIdentity";
 import { render } from "../../test-utils";
-import userEvent from "@testing-library/user-event";
-import {act} from "react";
 import {waitFor} from "@testing-library/react";
 
 describe("Proof of identity protocol steps", () => {
