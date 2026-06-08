@@ -5,7 +5,7 @@ async function sleep(ms) {
 }
 
 function GraphView({ firstHalf=true, isAlice=true }) {
-    const [firstIndexOfSecondHalf, setFirstIndexOfSecondHalf] = useState(isAlice ? 5 : 4);
+    const [firstIndexOfSecondHalf, setFirstIndexOfSecondHalf] = useState(isAlice ? 4 : 3);
     const [totalSteps, setTotalSteps] = useState(isAlice ? 8 : 6);
     const [currentIndex, setCurrentIndex] = useState(firstHalf ? 0 : firstIndexOfSecondHalf);
     const [loaded, setLoaded] = useState(false);

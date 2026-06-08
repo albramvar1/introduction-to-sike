@@ -25,7 +25,7 @@ describe("GraphView", () => {
     test("renders second half correctly", () => {
         render(<GraphView firstHalf={false} />);
 
-        expect(document.getElementById("alice-graph-image").src).toBe("http://localhost/graph-views/2-isogeny/step5.png");
+        expect(document.getElementById("alice-graph-image").src).toBe("http://localhost/graph-views/2-isogeny/step4.png");
     });
 
     test("load handler is called", () => {
