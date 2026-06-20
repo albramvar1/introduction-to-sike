@@ -1,0 +1,54 @@
+\chapter{Desarrollo}\label{desarrollo}
+
+\section{Incidencias}
+
+Como todo desarrollo software, el proceso de creación de la interfaz ha tenido varias incidencias que quedarán registradas en esta sección.
+
+\subsection{Despliegue en Render}
+
+Como mencionamos en el capítulo \ref{tecnologias} Tecnologías, tras un proceso de investigación y selección acabamos decidiendo desplegar en Render. A pesar de ser una herramienta que conocemos y con la que hemos trabajado anteriormente, nos hemos encontrado con algunos problemas.
+
+El principal entre ellos es la disponibilidad del despliegue. Render suspende aquellos servicios que no reciben ninguna petición tras 15 minutos. Para evitar esto, utilizamos UptimeRobot, un servicio web que cada cierto tiempo (en este caso concreto, 5 minutos) consulta la página para evitar que Render la suspenda.
+
+Sin embargo, esta no es la única restricción que Render aplica a sus despliegues gratuitos, también aplica un máximo de 750 horas de disponibilidad. Lo que es más que suficiente para un proyecto como este, aunque no equivale a las 24 horas de los 31 días del mes. Por este motivo, el servicio quedó suspendido del 27 de mayo hasta el 31 de ese mismo mes. Para evitar estos periodos de no disponibilidad, tuvimos que investigar por otro servicio gratuito similar a UptimeRobot pero que incluyese periodos de mantenimiento, lo que permitiría reducir el número de horas que el servicio está disponible.
+
+La mayoría de servicios de monitorización web que incluyen intervalos de mantenimiento son de pago (el servicio en sí no necesariamente, pero esa funcionalidad sí) pero tras mucho buscar dimos con Better Stack, que incluye esta funcionalidad de manera gratuita. Establecemos así un periodo de mantenimiento diario desde las 12 de la noche hasta las 6 de la mañana, permitiendo así que el despliegue se suspenda durante esas horas y consiguiendo así no llegar a las 750 horas de disponibilidad que Render ofrece.
+
+
+
+\section{Desarrollos futuros}
+
+En esta sección se discutirán los posibles desarrollos que podrían incluirse en la interfaz pero que no ha sido posible incluirlos en el despligue actual.
+
+\subsection{Apartado de conceptos matemáticos}
+
+Aunque la interfaz no profundiza mucho en el funcionamiento matemático del protocolo, podría ser interesante incluir aquellos conceptos que se discuten en esta memoria en el capítulo \ref{conceptosprevios} titulado Conceptos previos.
+
+Esta página podría reutilizar la plantilla de protocolo o bien ser una página simple al estilo Wikipedia donde se concentre la información. En esta segunda opción, cada sección podría ocultarse o mostrarse con una animación tipo acordeón que permitiese moverse libre y fácilmente por todo el documento.
+
+Esta funcionalidad no ha sido incluida por no disponer del tiempo de realizarla correctamente.
+
+
+\subsection{Ampliación de los workflows}
+
+Aunque la interfaz es un proyecto pequeño, podría ser interesante incluir algunas funcionalidades a los workflows existentes.
+
+Ahora mismo, el despliegue lo dirige Render, si los workflows básicos de pruebas pasan y el commit incluye cambios en un directorio determinado (dado que tenemos tanto frontend como backend en un mismo repositorio, esta especificación permite no hacer despliegues innecesarios). Sin embargo, podría ser interesante incluir el despliegue en el mismo workflow.
+
+También, como los despliegues se realizan mediante Docker, podría ser interesante incluir una publicación de la imagen o similar.
+
+Siguiendo la lógica de la comprobación de las pruebas, podría incluirse un servicio como son Codacy o Sonarqube que permiten un análisis del código y su calidad.
+
+Estos desarrollos no se han realizado debido al pequeño tamaño del proyecto.
+
+
+\subsection{Personalizar y/o dinamizar la presentación del intercambio de clave}
+
+Igual que el protocolo de cifrado es dinámico, cifrando y descifrando el mensaje que introduce el usuario utilizando SIKE, la presentación de intercambio de clave podría permitir al usuario la elección de primo y parámetros iniciales para que cada experiencia sea diferente y el usuario pueda apreciar las diferencias entre la aplicación de unos parámetros u otros.
+
+Sin embargo, permitir tanta variabilidad haría que el proyecto se saliese del alcance, el tiempo y los recursos disponibles. No tenemos los conocimientos necesarios para implementar unos desarrollos matemáticos tan complejos y, aunque investigando habríamos podido llegar a obtenerlos, este proceso de investigación se saldría de los plazos disponibles. 
+
+
+\subsection{Prueba de conocimiento cero}
+
+La propuesta del SIKE al NIST incluye también una prueba de conocimiento cero. Este protocolo también estuvo originalmente incluido en el proyecto (de hecho, sigue presente en la interfaz gráfica) pero finalmente, por consejo del tutor, decidimos eliminarlo y considerarlo como una posible mejora futura.

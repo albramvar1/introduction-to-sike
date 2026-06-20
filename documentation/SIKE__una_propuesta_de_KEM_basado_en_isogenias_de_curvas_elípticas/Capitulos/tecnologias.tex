@@ -1,0 +1,66 @@
+\chapter{Tecnologías}\label{tecnologias}
+
+En este apartado se detallarán las tecnologías, lenguajes y convenciones a las que nos hemos atenido a lo largo de la realización del proyecto.
+
+\section{Backend}
+
+Al estar el proyecto pensado como una interfaz didáctica, el backend es bastante sencillo.
+
+\subsection{Lenguaje informático}
+
+Aunque el ámbito informático es extremadamente amplio y existen siempre miles de alternativas disponibles en cuanto a qué tecnologías usar, en este caso en concreto la decisión ha estado marcada por la necesidad.
+
+Existen tres implementaciones de \href{https://sike.org/}{SIKE según su página oficial}. Una en \href{https://github.com/Microsoft/PQCrypto-SIDH}{C, ofrecida por Microsoft Research}, otra en \href{https://github.com/cloudflare/circl/tree/master/dh/sidh}{Go por Cloudfare} y una última en \href{https://github.com/wultra/sike-java}{Java por Wultra}. De los tres lenguajes mencionados, sólo hemos trabajado con \textbf{Java} por lo que nos decantamos por él.
+
+\subsection{Framework}
+
+Hemos optado por utilizar \textbf{SpringBoot} como framework ya que es el que más hemos utilizado a lo largo de la carrera además de ser seguro y fácilmente escalable.
+
+
+\section{Frontend}
+
+En el frontend es donde reside la mayor parte del proyecto.
+
+\subsection{Lenguaje informático}
+
+Como lenguaje informático hemos utilizado \textbf{JavaScript} debido a su sencillez y rapidez. Aunque consideramos el uso de TypeScript por su robustez y mayor seguridad, consideramos que, teniendo en cuenta las funcionalidades de la web — esto es, el ser una web casi únicamente de presentación, apenas trata con variables y datos complejos además de tener un gran número de elementos móviles — estas características no eran necesarias y nos interesaba más la inmediatez del JavaScript. 
+
+A la hora de los estilos de la página, consideramos usar Bootstrap con el que hemos trabajado en algunos proyectos. Sin embargo, dado que personalmente siempre me ha entorpecido más que ayudado, decidí utilizar \textbf{CSS} puro, salvo aquellas dependencias que traían sus propios estilos y personalizaciones.
+
+\subsection{Librerías y recursos}
+
+Hemos utilizado \textbf{React} para diseñar el frontend debido a su flexibilidad y a la gran cantidad de componentes ya hechos y listos para su uso. Entre ellos, cabe destacar:
+
+\begin{itemize}
+    \item SeraUI (https://seraui.com/): para gran parte de los componentes animados.
+    \item Reagraph (https://reagraph.dev/): una librería específica para la visualización de grafos en React.
+\end{itemize}
+
+
+\section{Despliegue y mantenimiento}
+
+Para el despliegue consideramos un gran número de opciones por varios motivos que desglosaremos a continuación.
+
+\subsection{Oracle Cloud}
+
+En primer lugar, intentamos encontrar una forma de desplegar un contenedor docker al completo, ya que el backend es tan mínimo que nos parecía más óptimo el desplegar el proyecto de forma íntegra para evitar exponer el backend y que el mantenimiento fuese lo más cómodo posible.
+
+La mejor opción para ello consistía en utilizar Oracle Cloud, que pone a disposión máquinas virtuales para uso propio que, si se atienen a una serie de restricciones y métricas de uso, pueden ser usados indefinidamente sin coste alguno.
+
+Sin embargo, intentando crear una instancia, nos encontramos con que no hay ninguna disponible en la región que había seleccionado. Como la región no se puede cambiar una vez creada una cuenta, una opción sería empezar a crear cuentas hasta dar con una región que tuviese instancias disponibles. Como cada cuenta necesita un correo diferente y añadir una tarjeta de crédito, no nos pareció buena idea utilizar ese acercamiento.
+
+\subsection{Koyeb}
+
+Según nuestras investigaciones, Koyeb ofrece un único despliegue de forma completamente gratuita, tanto blogs como la misma documentación del sitio. Esta plataforma, además de unas prestaciones bastante buenas, no suspende los despliegues en periodos de baja demanda, como hacen muchas otras plataformas.
+
+Más allá de simple comodidad, este motivo específico me interesaba para desplegar el backend y evitar problemas de funcionamiento del frontend. Podría implementarse un sistema de relevo en el que una vez se arranca el frontend, este haga una llamada de comprobación al backend para asegurarse de que todo está bien o, en el caso de que esté inactivo, que vuelva a arrancar. Por desgracia, este funcionamiento no nos parece suficiente ya que durante todo ese tiempo que el backend tarda en arrancar, el frontend no puede depender de él.
+
+Una opción sería avisar al usuario de la situación, pero teniendo opciones como Koyeb es claramente mejor para el usuario no tener que estar esperando. Desgraciadamente, cuando intentamos crear una cuenta en Koyeb para su uso, este obliga al usuario a pagar una suscripción de 30\$ antes de empezar a usar el sitio, por lo que tuvimos que descartar esta plataforma también.
+
+\subsection{Vercel, Render y Better Slack}
+
+Finalmente, nos decantamos por usar Render, una plataforma que hemos utilizado en varias ocasiones a lo largo de la carrera y es de las pocas que ofrece despliegues gratuitos de contenedores Docker sin mucho problema.
+
+Render, no obstante, sí que implementa la pausa de los servicios si no se detecta un mínimo de actividad. Investigando un poco más, descubrimos que hay plataformas, como Better Slack, que es la que hemos acabado utilizando, que le lanzan una petición HTTP cada cierto tiempo a una dirección cualquiera. 
+
+Poco después nos encontramos con que Render tiene otras restricciones que no conocíamos de antemano que es un máximo total de 750 horas mensuales de los despliegues gratuitos. Es por esto que finalmente hemos decidido desplegar el frontend y el backend por separado, este primero en Vercel que no tiene periodos de suspensión y está centrado para frameworks como React, y el backend en Render, con un monitor que evite su suspensión.

@@ -1,0 +1,62 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass{pclass}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage{fancyvrb}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{amsmath,amsthm}
+\usepackage{graphicx} 
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{pdflscape}
+\usepackage{verbatim}
+\usepackage{hyperref}
+%\usepackage{ulem}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problema}
+
+\begin{document}
+\tipo{Grado}
+\titulopro{SIKE: una propuesta de KEM basado en isogenias de curvas elípticas}
+\tutor{José Andrés Armario Sampalo}
+\departamento{Matemáticas Aplicadas I}
+\autores{Alba Ramos Vargas}{{\ }}
+\dia{1 de marzo de 2026}
+\titulacion{Grado en Ingeniería de Software - Ingeniería Informática}
+
+\hacerportada
+
+	\input{tocdef}
+\frontmatter
+        
+    \input{Capitulos/resumen}
+    \input{Capitulos/abstract}
+
+    \tableofcontents
+ 	\listoftables
+ 	\listoffigures
+
+ \mainmatter  
+    
+     \input{Capitulos/introduccion}
+     \input{Capitulos/conceptosprevios}
+     \input{Capitulos/estudioteorico}
+     \input{Capitulos/metodologia}
+     \input{Capitulos/planificacion}
+     \input{Capitulos/alcance}
+     \input{Capitulos/critaceptacion}
+     \input{Capitulos/requisitos}
+     \input{Capitulos/tecnologias}
+     \input{Capitulos/disarqtecnica}
+     \input{Capitulos/pruebas}
+     \input{Capitulos/desarrollo}
+     \input{Capitulos/conclusiones}
+
+\backmatter
+
+\bibliographystyle{apacite}
+\bibliography{pfcbib}
+
+\end{document}
