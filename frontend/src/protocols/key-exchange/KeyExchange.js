@@ -20,7 +20,7 @@ function Step1() {
                         {t("keyExchange.step1.part1")}
                         <ul>
                             <li>{t("keyExchange.step1.part2")}<span className="math italic">p</span></li>
-                            <li>{t("keyExchange.step1.part3")}<span className="math">F<span
+                            <li>{t("keyExchange.step1.part3")}<span className="math">𝔽<span
                                 className="math subindex italic">p<span
                                 className="math superindex">2</span></span></span></li>
                             <li>{t("keyExchange.step1.part4")}<span className="math italic">{"{"} P<span
@@ -53,7 +53,7 @@ function Step2() {
                     <p>{t("keyExchange.step2.part6")}<span className="math">p = 463 = 2<span className="superindex">4</span> · 3<span className="superindex">3</span> + 1</span>.</p>
                     <p>{t("keyExchange.step2.part7")}</p>
                     <p>{t("keyExchange.step2.part8")}</p>
-                    <p>T{t("keyExchange.step2.part9")}<span className="math">E<span className="subindex">0</span></span>{t("keyExchange.step2.part10")}<span className="math italic">E<span className="subindex">A</span></span>, <span className="math italic">E<span className="subindex">B</span></span>{t("keyExchange.step2.part11")}</p>
+                    <p>{t("keyExchange.step2.part9")}<span className="math">E<span className="subindex">0</span></span>{t("keyExchange.step2.part10")}<span className="math italic">E<span className="subindex">A</span></span>, <span className="math italic">E<span className="subindex">B</span></span>{t("keyExchange.step2.part11")}</p>
                 </div>
             </div>
         </MotionDiv>

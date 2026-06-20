@@ -19,6 +19,7 @@ jobs:
 
     env:
       CI: false
+      REACT_APP_DEPLOYED_URL: ${{ secrets.REACT_APP_DEPLOYED_URL }}
 
     steps:
     - uses: actions/checkout@v4

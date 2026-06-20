@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
 import java.security.KeyPair;
+import java.security.NoSuchProviderException;
 import java.security.Security;
 import java.util.Arrays;
 
@@ -58,6 +59,9 @@ public class SikeService {
             }
 
             return sikeEntity;
+        } catch (NoSuchProviderException e) {
+            Security.addProvider(new BouncyCastleProvider());
+            return generateKeyPair(message);
         } catch (Exception e) {
             return null;
         }

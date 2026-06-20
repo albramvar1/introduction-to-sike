@@ -35,7 +35,7 @@ public class SecurityConfiguration {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/sike/generate-key-pair").allowedOrigins("*");
+                registry.addMapping("/sike/generate-key-pair").allowedOrigins("https://introduction-to-sike.vercel.app", "https://uptime.betterstack.com");
             }
         };
     }

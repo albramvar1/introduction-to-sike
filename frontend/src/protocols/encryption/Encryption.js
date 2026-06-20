@@ -85,7 +85,7 @@ function Step2() {
     const { t } = useTranslation();
     const parameters = useParameters();
     const [loading, setLoading] = useState(false);
-    const [ENDPOINT, setEndpoint] = useState("https://introduction-to-sike-backend.onrender.com");
+    const [ENDPOINT, setEndpoint] = useState(process.env.REACT_APP_DEPLOYED_URL);
 
     useEffect(() => {
         if (parameters.message !== parameters.decodedMessage) {

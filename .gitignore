@@ -1,4 +1,5 @@
 backend/.idea/**
+backend/.idea/workspace.xml
 backend/.mvn/**
 backend/target/**
 frontend/.idea/**
